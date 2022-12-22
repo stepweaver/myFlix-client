@@ -2,14 +2,28 @@ import React from 'react';
 import { useState } from 'react';
 
 import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
 
 export const MainView = () => {
   const [movies, setMovies] = useState([
-    { id: 1, title: 'Eloquent JavaScript' },
-    { id: 2, title: 'Mastering JavaScript Function Programming' },
-    { id: 3, title: 'JavaScript: The Good Parts'},
-    { id: 4, title: 'JavaScript: The Definitive Guide'},
-    { id: 5, title: 'The Road to React'}
+    { 
+      id: 1,
+      title: 'Memento',
+      image: 'https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg',
+      director: 'Christopher Nolan'
+    },
+    { 
+      id: 2,
+      title: 'Grandma\'s Boy',
+      image: 'https://m.media-amazon.com/images/M/MV5BMDFiYzQ0NzktMGNkNy00YTQ0LTgxODgtNDViNGIxMTc1NGFjL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg',
+      director: 'Nicholaus Goosen'
+    },
+    {
+      id: 3,
+      title: 'The Batman',
+      image: 'https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg',
+      director: 'Matt Reeves'
+    }
   ]);
 
   if (movies.length === 0) {
