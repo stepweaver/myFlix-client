@@ -29,7 +29,7 @@ export const MainView = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   if (selectedMovie) {
-    return <MovieView movieData={selectedMovie} />;
+    return <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
   } else {
   if (movies.length === 0) {
     return <div>The list is empty!</div>;
