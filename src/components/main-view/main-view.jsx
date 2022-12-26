@@ -10,7 +10,11 @@ export const MainView = () => {
       id: 1,
       title: 'Memento',
       image: 'https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg',
-      director: 'Christopher Nolan'
+      director: 'Christopher Nolan',
+      year: '2000',
+      genre: 'Mystery',
+      rating: 'R',
+      description: 'A man with short-term memory loss attempts to track down his wife\'s murderer.'
     },
     { 
       id: 2,
