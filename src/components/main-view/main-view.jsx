@@ -26,15 +26,26 @@ export const MainView = () => {
     }
   ]);
 
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  if (selectedMovie) {
+    return <MovieView movieData={selectedMovie} />;
+  } else {
   if (movies.length === 0) {
     return <div>The list is empty!</div>;
   } else {
     return (
       <div>
         {movies.map((movie) => (
-          <MovieCard movieData={movie} />
+          <MovieCard
+            key={movie.id}
+            movieData={movie}
+            onMovieClick={(newSelectedMovie) => {
+              setSelectedMovie(newSelectedMovie);
+            }}
+          />
         ))}
       </div>
-    );
+    )};
   }
 };
