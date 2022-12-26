@@ -12,21 +12,22 @@ export const MainView = () => {
       fetch('https://cthulhuflix.onrender.com/movies')
         .then((response) => response.json())
         .then((data) => {
-          const moviesFromApi = data.map((doc) => {
+          const moviesFromApi = data.map((m) => {
             return {
-              id: doc._id,
-              title: doc.title,
-              image: doc.imageURL,
-              year: doc.year,
-              rating: doc.rating,
-              description: doc.description,
-              genre: doc.genre,
-              director: doc.director,
-              actors: doc.actors
+              id: m._id,
+              title: m.title,
+              year: m.year,
+              rating: m.rating,
+              description: m.description,
+              genre: m.genre.name,
+              director: m.director.name,
+              image: m.imageURL,
+              actors: m.actors
             };
           });
-          
+
           setMovies(moviesFromApi);
+          console.log('movies from api:', data);
         });
     }, []);
 
