@@ -32,6 +32,7 @@ export const LoginView = ({ onLoggedIn }) => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder='Enter Username'
+          minLength='2'
           required
           />
       </label>
