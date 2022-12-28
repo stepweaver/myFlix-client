@@ -3,33 +3,38 @@ import { useState, useEffect } from 'react';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
 
 export const MainView = () => {
   const [movies, setMovies] = useState([]);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [ user, setUser ] = useState(null);
+
     useEffect(() => {
       fetch('https://cthulhuflix.onrender.com/movies')
         .then((response) => response.json())
         .then((data) => {
-          const moviesFromApi = data.map((m) => {
+          const moviesFromApi = data.map((movie) => {
             return {
-              id: m._id,
-              title: m.title,
-              year: m.year,
-              rating: m.rating,
-              description: m.description,
-              genre: m.genre.name,
-              director: m.director.name,
-              image: m.imageURL,
-              actors: m.actors
+              id: movie._id,
+              title: movie.title,
+              year: movie.year,
+              rating: movie.rating,
+              description: movie.description,
+              genre: movie.genre.name,
+              director: movie.director.name,
+              image: movie.imageURL,
+              actors: movie.actors
             };
           });
 
           setMovies(moviesFromApi);
-          console.log('movies from api:', data);
         });
     }, []);
+
+  if (!user) {
+    return <LoginView />;
+  }
 
   if (selectedMovie) {
     return <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
