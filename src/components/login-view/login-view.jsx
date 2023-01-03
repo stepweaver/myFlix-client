@@ -8,19 +8,25 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password
+      Username: username,
+      Password: password
     };
 
-    fetch('https://openlibrary.org/account/login.json', {
+    fetch('https://cthulhuflix.onrender.com/login?' + new URLSearchParams(data).toString(), {
       method: 'POST',
       body: JSON.stringify(data)
-    }).then ((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
+    })
+    .then ((response) => response.json())
+    .then ((data) => {
+      console.log('Login Response: ', data);
+      if (data.user) {
+        onLoggedIn(data.user, data.token);
       } else {
-        alert('Login failed');
+        alert('Dave\'s not here! No such user.');
       }
+    })
+    .catch((e) => {
+      alert('What did you do!? Something went wrong.');
     });
   };
 
