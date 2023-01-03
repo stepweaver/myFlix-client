@@ -6,8 +6,8 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [ movies, setMovies ] = useState([]);
+  const [ selectedMovie, setSelectedMovie ] = useState(null);
   const [ user, setUser ] = useState(null);
 
     useEffect(() => {
