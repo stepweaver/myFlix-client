@@ -6,7 +6,31 @@ export const SignupView = () => {
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
 
-  const handleSubmit = (event) => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = {
+      username: username,
+      password: password,
+      email: email,
+      birthday: birthday
+    };
+
+    fetch('https://cthulhuflix.onrender.com/register', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then ((response) => {
+      if (response.ok) {
+        alert('Signup successful');
+        window.location.reload();
+      } else {
+        alert('Signup failed');
+      }
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
