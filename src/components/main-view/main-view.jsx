@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Row } from 'react-bootstrap';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -40,40 +41,40 @@ export const MainView = () => {
         });
     }, [token]);
 
-  if (!user) {
-    return (
-      <>
-        <LoginView
-          onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-          }}
-        />
-        or
-        <SignupView />
-      </>
-    );
-  }
-
-  if (selectedMovie) {
-    return <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
-  } else {
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  } else {
-    return (
-      <div>
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movieData={movie}
-            onMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
+  return (
+    <Row>
+      {!user ? (
+        <>
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
             }}
           />
-        ))}
-        <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
-      </div>
-    )};
-  }
+          or
+          <SignupView />
+        </>
+      ) : selectedMovie ? (
+        <MovieView
+          movieData={selectedMovie}
+          onBackClick={() => setSelectedMovie(null)}
+        />
+      ) : movies.length === 0 ? (
+        <div>The list is empty!</div>
+      ) : (
+        <>
+          {movies.map((movie) => (
+            <MovieCard
+              key={movie.id}
+              movieData={movie}
+              onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }}
+            />
+          ))}
+          <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
+        </>
+      )}
+    </Row>
+  )
 };
