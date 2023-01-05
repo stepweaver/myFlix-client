@@ -2,3 +2,9 @@ $primary: #008f11;
 $body-bg: black;
 
 @import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  background-image: url('../images/cthulhuBG.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
