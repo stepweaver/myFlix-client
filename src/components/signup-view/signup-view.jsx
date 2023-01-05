@@ -76,7 +76,7 @@ export const SignupView = () => {
       </Form.Group>
       <Button
         className='mt-2'
-        variant='secondary'
+        variant='primary'
         type='submit'
       >
         Submit
