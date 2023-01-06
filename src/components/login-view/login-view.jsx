@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -36,35 +36,47 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId='loginUsername' className='input-group-sm mt-2'>
-        <Form.Label>Username:</Form.Label>
-        <Form.Control
-          type='text' 
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder='Enter Username'
-          minLength='2'
-          required
-        />
-      </Form.Group>
-      <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder='Enter Password'
-          required
-        />
-      </Form.Group>
-      <Button
-        className='mt-2'
-        variant='primary'
-        type='submit'
-      >
-        Submit
-      </Button>
-    </Form>
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card className='bg-transparent p-3 mt-5 border-primary'>
+              <Card.Title className='text-center fs-4 fw-bold'>Login</Card.Title>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='loginUsername' className='input-group-sm mt-2'>
+                <Form.Label>Username:</Form.Label>
+                  <Form.Control
+                    type='text' 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder='Enter Username'
+                    minLength='2'
+                    required
+                  />
+                </Form.Group>
+                <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
+                <Form.Label>Password:</Form.Label>
+                  <Form.Control
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder='Enter Password'
+                    required
+                  />
+                </Form.Group>
+                <Button
+                  className='mt-2'
+                  variant='primary'
+                  type='submit'
+                >
+                  Submit
+                </Button>
+              </Form>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
+    
   );
 };
