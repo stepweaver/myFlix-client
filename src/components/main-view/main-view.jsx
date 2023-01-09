@@ -113,7 +113,8 @@ export const MainView = () => {
       </Row>
     </BrowserRouter>
   );
-};  
+};
+
 //     <Row className='justify-content-md-center'>
 //       {!user ? (
 //         <Col xl ={4} lg={5} md={6} sm={10} xs={12}>
