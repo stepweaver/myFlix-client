@@ -18,7 +18,9 @@ export const MainView = () => {
     useEffect(() => {
       if (!token) return;
 
-      fetch('https://cthulhuflix.onrender.com/movies')
+      fetch('https://cthulhuflix.onrender.com/movies', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
         .then((response) => response.json())
         .then((data) => {
           const moviesFromApi = data.map((movie) => {
