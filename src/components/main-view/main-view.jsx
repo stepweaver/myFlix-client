@@ -22,17 +22,17 @@ export const MainView = () => {
       fetch('https://cthulhuflix.onrender.com/movies')
         .then((response) => response.json())
         .then((data) => {
-          const moviesFromApi = data.map((movie) => {
+          const moviesFromApi = data.map((doc) => {
             return {
-              id: movie._id,
-              title: movie.title,
-              year: movie.year,
-              rating: movie.rating,
-              description: movie.description,
-              genre: movie.genre.name,
-              director: movie.director.name,
-              image: movie.imageURL,
-              actors: movie.actors
+              id: doc._id,
+              title: doc.title,
+              year: doc.year,
+              rating: doc.rating,
+              description: doc.description,
+              genre: doc.genre.name,
+              director: doc.director.name,
+              image: doc.imageURL,
+              actors: doc.actors
             };
           });
 
@@ -82,7 +82,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movieData={movies} />
+                    <MovieView movies={movies} />
                   </Col>
                 )}
               </>
@@ -98,9 +98,9 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    {movies.map((movies) => (
-                      <Col className='mb-4 text-light' key={movies.id} md={3}>
-                        <MovieCard movieData={movies} />
+                    {movies.map((movie) => (
+                      <Col className='mb-4 text-light' key={movie.id} md={3}>
+                        <MovieCard movie={movie} />
                       </Col>
                     ))}
                     <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
