@@ -1,24 +1,24 @@
 import { Button } from 'react-bootstrap';
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movieData, onBackClick }) => {
   return (
     <div>
       <div>
-        <img className='w-50' src={movie.image} />
+        <img className='w-50' src={movieData.image} />
       </div>
       <br />
-      <div>{movie.title}</div><br />
+      <div>{movieData.title}</div><br />
       <div>
         <span>Year: </span>
-        <span>{movie.year}, </span>
+        <span>{movieData.year}, </span>
         <span>Rated: </span>
-        <span>{movie.rating}</span>
+        <span>{movieData.rating}</span>
       </div><br />
       <div>
         <span>Genre: </span>
-        <span>{movie.genre}</span>
+        <span>{movieData.genre}</span>
       </div><br />
-      <div>{movie.description}</div><br />
+      <div>{movieData.description}</div><br />
       <Button
         variant='primary'
         onClick={onBackClick}
