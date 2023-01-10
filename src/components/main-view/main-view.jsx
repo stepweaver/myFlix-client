@@ -23,17 +23,17 @@ export const MainView = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          const moviesFromApi = data.map((movie) => {
+          const moviesFromApi = data.map((item) => {
             return {
-              id: movie._id,
-              title: movie.title,
-              year: movie.year,
-              rating: movie.rating,
-              description: movie.description,
-              genre: movie.genre.name,
-              director: movie.director.name,
-              image: movie.imageURL,
-              actors: movie.actors
+              id: item._id,
+              title: item.title,
+              year: item.year,
+              rating: item.rating,
+              description: item.description,
+              genre: item.genre.name,
+              director: item.director.name,
+              image: item.imageURL,
+              actors: item.actors
             };
           });
 
