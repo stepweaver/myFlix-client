@@ -14,7 +14,6 @@ export const MainView = () => {
   const [ user, setUser ] = useState(storedUser? storedUser : null);
   const [ token, setToken ] = useState(storedToken? storedToken : null);
   const [ movies, setMovies ] = useState([]);
-  const [ selectedMovie, setSelectedMovie ] = useState(null);
 
     useEffect(() => {
       if (!token) return;
@@ -33,7 +32,7 @@ export const MainView = () => {
               description: item.description,
               genre: item.genre.name,
               director: item.director.name,
-              image: item.imageURL,
+              imageURL: item.imageURL,
               actors: item.actors
             };
           });
@@ -75,7 +74,7 @@ export const MainView = () => {
             }
           />
           <Route
-            path='/movies/:movidId'
+            path='/movies/:movieId'
             element={
               <>
                 {!user ? (
@@ -101,7 +100,7 @@ export const MainView = () => {
                 ) : (
                   <>
                     {movies.map((movie) => (
-                      <Col className='mb-4' key={movie._id} md={3}>
+                      <Col className='mb-4' key={movie.id} md={3}>
                         <MovieCard movie={movie} />
                       </Col>
                     ))}
