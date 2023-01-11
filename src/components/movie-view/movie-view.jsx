@@ -1,30 +1,32 @@
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-export const MovieView = ({ movieData, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+  const movie = movies.find((m) => m.id === movieId);
+
   return (
     <div>
       <div>
-        <img className='w-50' src={movieData.image} />
+        <img className='w-50' src={movie.imageURL} />
       </div>
       <br />
-      <div>{movieData.title}</div><br />
+      <div>{movie.title}</div><br />
       <div>
         <span>Year: </span>
-        <span>{movieData.year}, </span>
+        <span>{movie.year}, </span>
         <span>Rated: </span>
-        <span>{movieData.rating}</span>
+        <span>{movie.rating}</span>
       </div><br />
       <div>
         <span>Genre: </span>
-        <span>{movieData.genre}</span>
+        <span>{movie.genre}</span>
       </div><br />
-      <div>{movieData.description}</div><br />
-      <Button
-        variant='primary'
-        onClick={onBackClick}
-      >
-        Back
-      </Button>
+      <div>{movie.description}</div>
+      <Link to={'/'}>
+        <Button className='mt-4 outline-light primary' size='sm'>Back</Button>
+      </Link>
     </div>
   );
 };
