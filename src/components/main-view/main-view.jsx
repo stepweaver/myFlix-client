@@ -1,13 +1,13 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { LoginView } from '../login-view/login-view';
-import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
+import { ProfileView } from '../profile-view/profile-view';
+import { SignupView } from '../signup-view/signup-view';
 
 export const MainView = () => {
   const storedUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
@@ -112,6 +112,22 @@ export const MainView = () => {
                       </Col>
                     ))}
                   </>
+                )}
+              </>
+            }
+          />
+          <Route
+            path='/profile'
+            element={
+              <>
+                {!user ? (
+                  <Navigate to='/login' replace />
+                ) : user.lenth === 0 ? (
+                  <Col>Dave's not here! No such user.</Col>
+                ) : (
+                  <Col>
+                    <ProfileView user={user} movies={movies} />
+                  </Col>
                 )}
               </>
             }
