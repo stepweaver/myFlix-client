@@ -8,7 +8,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
     <Navbar variant='dark' expand='lg'>
       <Container>
         <Navbar.Brand as={Link} to='/'>
-          <img src={logo} />
+          <img src={logo} width='175' className='p-4'/>
           CthulhuFlix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
