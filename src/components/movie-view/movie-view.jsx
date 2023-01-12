@@ -12,12 +12,13 @@ export const MovieView = ({ movies }) => {
         <img className='w-50' src={movie.imageURL} />
       </div>
       <br />
-      <div>{movie.title}</div><br />
       <div>
-        <span>Year: </span>
-        <span>{movie.year}, </span>
-        <span>Rated: </span>
-        <span>{movie.rating}</span>
+        <span>{movie.title} | </span>
+        <span>Rated: {movie.rating}</span>
+      </div><br />
+      <div>
+        <span>Release Year: </span>
+        <span>{movie.year}</span>
       </div><br />
       <div>
         <span>Genre: </span>
