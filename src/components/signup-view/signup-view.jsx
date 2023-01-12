@@ -83,7 +83,7 @@ export const SignupView = () => {
                     />
                   </Form.Group>
                   <Button
-                    className='mt-2'
+                    className='mt-3'
                     variant='primary'
                     type='submit'
                   >
