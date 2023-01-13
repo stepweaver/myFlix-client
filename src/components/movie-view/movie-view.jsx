@@ -9,21 +9,20 @@ export const MovieView = ({ movies }) => {
   return (
     <div>
       <div>
-        <img className='w-50' src={movie.imageURL} />
+        <img className='w-50 mb-2' src={movie.imageURL} />
       </div>
-      <br />
-      <div>
+      <div className='mb-2'>
         <span>{movie.title} | </span>
         <span>Rated: {movie.rating}</span>
-      </div><br />
-      <div>
-        <span>Release Year: </span>
-        <span>{movie.year}</span>
-      </div><br />
-      <div>
+      </div>
+      <div className='mb-2'>
         <span>Genre: </span>
         <span>{movie.genre}</span>
-      </div><br />
+      </div>
+      <div className='mb-2'>
+        <span>Release Year: </span>
+        <span>{movie.year}</span>
+      </div>
       <div>{movie.description}</div>
       <Link to={'/'}>
         <Button className='mt-4 outline-light primary' size='sm'>Back</Button>
