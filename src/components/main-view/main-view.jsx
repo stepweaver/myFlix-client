@@ -6,7 +6,6 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
-import { ProfileView } from '../profile-view/profile-view';
 import { SignupView } from '../signup-view/signup-view';
 
 export const MainView = () => {
@@ -40,7 +39,7 @@ export const MainView = () => {
 
           setMovies(moviesFromApi);
         });
-    }, []);
+    }, [token]);
 
   return (
     <BrowserRouter>
@@ -112,22 +111,6 @@ export const MainView = () => {
                       </Col>
                     ))}
                   </>
-                )}
-              </>
-            }
-          />
-          <Route
-            path='/profile'
-            element={
-              <>
-                {!user ? (
-                  <Navigate to='/login' replace />
-                ) : user.lenth === 0 ? (
-                  <Col>Dave's not here! No such user.</Col>
-                ) : (
-                  <Col>
-                    <ProfileView user={user} movies={movies} />
-                  </Col>
                 )}
               </>
             }
