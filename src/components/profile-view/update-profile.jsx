@@ -114,5 +114,5 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
         </CardGroup>
       </Col>
     </Row>
-  )
-}
+  );
+};
