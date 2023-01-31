@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, usEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ export const MainView = () => {
 
   useEffect(() => {
     if (!token) {
-      return;
+      retern;
     }
 
     fetch('https://cthulhuflix.onrender.com/movies', {
@@ -99,7 +99,7 @@ export const MainView = () => {
               </>
             }
           />
-          {/* <Route
+          <Route
             path='/profile'
             element={
               <>
@@ -112,7 +112,7 @@ export const MainView = () => {
                 )}
               </>
             }
-          /> */}
+          />
           <Route
             path='/'
             element={
