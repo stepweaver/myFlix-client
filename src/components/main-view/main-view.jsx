@@ -7,9 +7,10 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { SignupView } from '../signup-view/signup-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 export const MainView = () => {
-  const storedUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+  const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
   const [ user, setUser ] = useState(storedUser ? storedUser : null);
   const [ token, setToken ] = useState(storedToken ? storedToken : null);
@@ -111,6 +112,22 @@ export const MainView = () => {
                       </Col>
                     ))}
                   </>
+                )}
+              </>
+            }
+          />
+          <Route
+            path='/users/:username'
+            element={
+              <>
+                {!user ? (
+                  <Navigate to='/login' replace />
+                ) : movies.length === 0 ? (
+                  <Col>This list is empty!</Col>
+                ) : (
+                  <Col>
+                    <ProfileView movies={movies} />
+                  </Col>
                 )}
               </>
             }
