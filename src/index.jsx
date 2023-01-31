@@ -5,7 +5,7 @@ import { MainView } from './components/main-view/main-view';
 
 import './index.scss';
 
-const CthulhuFlixApplication = () => {
+const MyFlixApplication = () => {
   return (
     <Container className='text-light'>
       <MainView />
@@ -16,4 +16,4 @@ const CthulhuFlixApplication = () => {
 const container = document.querySelector('#root');
 const root = createRoot(container);
 
-root.render(<CthulhuFlixApplication />);
+root.render(<MyFlixApplication />);
