@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movie }) => {
+import { FavoriteIcon } from '../favorite-icon/favorite-icon';
+
+export const MovieCard = ({ movie, user, updateUserOnFav }) => {
   return (
     <Link className='text-light text-decoration-none' to={`/movies/${encodeURIComponent(movie.id)}`}>
       <Card className='h-100 bg-dark'>
