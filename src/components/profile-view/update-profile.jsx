@@ -25,4 +25,34 @@ export const UpdateProfile = ({ storedToken, storedUser }) => {
         console.log(error);
       });
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    };
+
+    fetch(`https://cthulhuflix.onrender.com/users/${storedUser.username}`, {
+      methopd: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response) => {
+      if (response.ok) {
+        alert('Profile updated');
+        updateUser(username);
+      } else {
+        alert('Something went wrong');
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
 }
