@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
 import { BsPlusSquare } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
   const token = localStorage.getItem('token');
