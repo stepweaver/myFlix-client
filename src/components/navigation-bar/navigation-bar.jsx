@@ -5,7 +5,11 @@ import logo from '../../../images/cthulhuLogo.png';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar variant='dark' expand='lg' sticky='top'>
+    <Navbar
+      collapseOnSelect
+      variant='dark'
+      expand='lg'
+    >
       <Container>
         <Navbar.Brand as={Link} to='/'>
           <img src={logo} width='175' className='p-4'/>
