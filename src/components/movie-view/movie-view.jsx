@@ -103,10 +103,7 @@ MovieView.propTypes = {
       description: PropTypes.string.isRequired
     }).isRequired,
     year: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    actors: PropTypes.arrayOf(
-      PropTypes.string.isRequired
-    ).isRequired
+    rating: PropTypes.string.isRequired
   })).isRequired
 };
 
