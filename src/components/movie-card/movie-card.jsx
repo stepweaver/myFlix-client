@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { FavoriteIcon } from '../favorite-icon/favorite-icon';
 
 export const MovieCard = ({ movie, user, updateUserOnFav }) => {
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Link className='text-light text-decoration-none' to={`/movies/${encodeURIComponent(movie.id)}`}>
       <Card className='h-100 bg-dark'>
