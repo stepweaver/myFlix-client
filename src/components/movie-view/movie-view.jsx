@@ -90,8 +90,7 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
 };
 
 MovieView.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
+  movies: PropTypes.shape({
       title: PropTypes.string.isRequired,
       imageURL: PropTypes.string.isRequired,
       director: PropType.shape({
@@ -106,9 +105,8 @@ MovieView.propTypes = {
       rating: ProptTypes.string.isRequired,
       actors: PropTypes.arrayOf(
         [].string.isRequired
-      )
+      ).isRequired
     })
-  ).isRequired
 };
 
     // <div>
