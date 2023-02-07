@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import { FavoriteIcon } from '../favorite-icon/favorite-icon';
 import { MovieCard } from '../movie-card/movie-card';
@@ -90,23 +91,23 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
 };
 
 MovieView.propTypes = {
-  movies: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      imageURL: PropTypes.string.isRequired,
-      director: PropType.shape({
-        name: PropTypes.string.isRequired,
-        bio: PropTypes.string.isRequired
-      }).isRequired,
-      genre: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-      }).isRequired,
-      year: PropTypes.string.isRequired,
-      rating: ProptTypes.string.isRequired,
-      actors: PropTypes.arrayOf(
-        [].string.isRequired
-      ).isRequired
-    })
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
+    director: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      bio: PropTypes.string.isRequired
+    }).isRequired,
+    genre: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    }).isRequired,
+    year: PropTypes.string.isRequired,
+    rating: PropTypes.string.isRequired,
+    actors: PropTypes.arrayOf(
+      PropTypes.string.isRequired
+    ).isRequired
+  })).isRequired
 };
 
     // <div>
