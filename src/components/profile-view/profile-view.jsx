@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UpdateView } from './updateView';
+import { UpdateView } from './update-view';
 import { UserInfo } from './user-info';
 import { FavoriteMovies } from './favorite-movies';
 import { DeleteUser } from './delete-user';
