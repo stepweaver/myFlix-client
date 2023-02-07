@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-
-import cthulhuLogo from '../../../images/cthulhuLogo.png';
+import { Button, Form, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -10,88 +7,76 @@ export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      const queryParams = `?username=${username}&password=${password}`;
-      const response = await fetch(
-        `https://cthulhuflix.onrender.com/users/login${queryparams}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      );
 
-      const { success, message, data } = await response.json();
-      if (data) {
-        locatlStorage.setItem('username', username);
+    const data = {
+      Username: username,
+      Password: password
+    };
+
+    fetch('https://cthulhuflix.onrender.com/login?' + new URLSearchParams(data).toString(), {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+    .then ((response) => response.json())
+    .then ((data) => {
+      console.log('Login Response: ', data);
+      if (data.user) {
+        localStorage.setItem('user', JSON.stringify(data.user));
         localStorage.setItem('token', data.token);
-        onLoggedIn(username, data.token);
-      } else if (success) {
-        alert(message);
+        onLoggedIn(data.user, data.token);
       } else {
-        alert('Login failed');
+        alert('Dave\'s not here! No such user.');
       }
-    }
-    catch (error) {
-      console.error(error);
-      alert('Login failed');
-    }
+    })
+    .catch((e) => {
+      alert('What did you do!? Something went wrong.');
+    });
   };
 
   return (
-    <>
-      <Row className='d-flex justify-content-center align-content-center vh-100'>
-        <Col sm={6} md={4} xs={3} xxl={2}>
-          <Card className='p-4 rounded-4 shadow-lg m-3'>
-            <Card.Img
-              src={cthulhuLogo}
-              alt='CthulhuFlix Logo'
-              className='mx-auto mb-3 bg-primary'
-            />
-            <Card.Body className='d-flex flex-column align-items-center px-0'>
-              <Form onSubmit={handleSubmit} className='w-100'>
-                <Form.Group controlId='formUsername' className='mb-4'>
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card className='bg-transparent p-3 mt-5 border-primary'>
+              <Card.Title className='text-center fs-4 fw-bold'>Login</Card.Title>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group controlId='loginUsername' className='input-group-sm mt-2'>
+                <Form.Label>Username:</Form.Label>
                   <Form.Control
-                    type='text'
-                    placeholder='Enter Username'
+                    type='text' 
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    placeholder='Enter Username'
                     minLength='2'
                     required
                   />
                 </Form.Group>
-                <Form.Group conrolId='formPassword' className='mb4'>
+                <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
+                <Form.Label>Password:</Form.Label>
                   <Form.Control
                     type='password'
-                    placeholder='Enter Password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    placeholder='Enter Password'
                     required
                   />
                 </Form.Group>
                 <Button
-                  className='btn-primary d-block w-100 mb-3'
+                  className='mt-3'
+                  variant='primary'
                   type='submit'
                 >
-                  Login
+                  Submit
                 </Button>
               </Form>
-              <div>
-                <p className='text-muted text-center'>
-                  Don't have an account? Create one!
-                  <Link to={'/register'} className='mx-2'>
-                    Signup
-                  </Link>
-                </p>
-              </div>
-            </Card.Body>
-          </Card>
+            </Card>
+          </CardGroup>
         </Col>
       </Row>
-    </>
+    </Container>
+    
   );
 };
-
-export default LoginView;
