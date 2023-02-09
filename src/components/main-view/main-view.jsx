@@ -132,19 +132,27 @@ export const MainView = () => {
                     <div>The list is empty!</div>
                   ) : (
                     <>
-                      {movies.map((movie) => (
-                        <Col className='mb-b' key={movie.id} xs={12} sm={6} md={4} lg={3}>
-                          <MovieCard
-                            movieData={movie}
-                            user={user}
-                            updateUserOnFav={(user) => {
-                              console.log('Update user:', user);
-                              setUser(user);
-                              localStorage.setItem('user', JSON.stringify(user));
-                            }}
-                          />
-                        </Col>
-                      ))}
+                      {!user ? (
+                        <Navigate to='/login' />
+                      ) : movies.length === 0 ? (
+                        <Col>Loading...</Col>
+                      ) : (
+                        <Row className='justify-content-center py-5'>
+                          {movies.map((movie) => (
+                            <Col className='mb-b' key={movie.id} xs={12} sm={6} md={4} lg={3}>
+                              <MovieCard
+                                movie={movie}
+                                user={user}
+                                updateUserOnFav={(user) => {
+                                  console.log('Update user:', user);
+                                  setUser(user);
+                                  localStorage.setItem('user', JSON.stringify(user));
+                                }}
+                              />
+                            </Col>
+                          ))}
+                        </Row>
+                      )}
                       <Row>
                         <Col className='text-end mt-2'>
                           <Button
