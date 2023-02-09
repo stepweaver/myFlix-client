@@ -84,7 +84,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                     type='password'
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    minLenght='6'
+                    minLength='6'
                     title='Minimum length: 6 characters'
                     placeholder='Enter new password'
                   />
