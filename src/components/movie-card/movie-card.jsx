@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { FavoriteIcon } from '../favorite-icon/favorite-icon';
+// import { FavoriteIcon } from '../favorite-icon/favorite-icon';
 
 export const MovieCard = ({ movie, user, updateUserOnFav }) => {
   if (!movie) {
