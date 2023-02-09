@@ -153,22 +153,6 @@ export const MainView = () => {
                           ))}
                         </Row>
                       )}
-                      <Row>
-                        <Col className='text-end mt-2'>
-                          <Button
-                            onClick={() => {
-                              setUser(null);
-                              setToken(null);
-                              localStorage.clear();
-                            }}
-                            variant='primary'
-                            size='sm'
-                            className='mb-5'
-                          >
-                            Sign Out
-                          </Button>
-                        </Col>
-                      </Row>
                     </>
                   )}
                 </>
