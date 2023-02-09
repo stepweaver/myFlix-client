@@ -3,11 +3,13 @@ import { BsPlusSquare } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
+  if (!user) return null;
+
   const token = localStorage.getItem('token');
 
-  const alreadyFavorite = user.FavoriteMovies.find(
+  const alreadyFavorite = user.FavoriteMovies ? userFavoriteMovies.find(
     (favMovieId) => favMovieId === movie.id
-  );
+  ) : false;
 
   const toggleFavorite = () => {
     if (!token) return;
@@ -50,7 +52,7 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
 
     return (
       <Link
-        onClick={() => toggleFavortie()}
+        onClick={() => toggleFavorite()}
         className='favorite-icon'
         id='favMovieButton'
       >
