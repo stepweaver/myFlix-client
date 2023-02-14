@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsPlusSquare } from 'react-icons/fa';
+import { BsFillPlusSquare } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
@@ -7,7 +7,7 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
 
   const token = localStorage.getItem('token');
 
-  const alreadyFavorite = user.FavoriteMovies ? userFavoriteMovies.find(
+  const alreadyFavorite = user.FavoriteMovies ? user.FavoriteMovies.find(
     (favMovieId) => favMovieId === movie.id
   ) : false;
 
@@ -43,20 +43,20 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       .then((data) => {
         alert(`${resultAlert}`);
         updateUserOnFav(data);
-        document.querySelector('svg').classList.add('favorite-movie');
+        iconChange();
       })
       .catch((e) => {
         alert('What did you do!? Something went wrong.');
       });
-    };
+  };
 
-    return (
-      <Link
-        onClick={() => toggleFavorite()}
-        className='favorite-icon'
-        id='favMovieButton'
-      >
-        {alreadyFavorite ? <BsPlusSquare className='favorite-movie' /> : <BsPlusSquare />}
-      </Link>
-    );
+  return (
+    <Link
+      onClick={() => toggleFavorite()}
+      className='favorite-icon'
+      id='favMovieButton'
+    >
+      {alreadyFavorite ? <BsFillPlusSquare className='favorite-movie' /> : <BsFillPlusSquare />}
+    </Link>
+  );
 };
