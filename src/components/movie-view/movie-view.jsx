@@ -21,43 +21,38 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
 
   return (
     <>
-      <Row className='d-flex flex-row-reverse p-3'>
-        <Col md={5} className='text-center text-md-end'>
+      <Row className='d-flex p-3'>
+        <Col md={4} className='text-center text-md-end'>
           <img
             src={movie.imageURL}
             alt={`Poster for ${movie.title}`}
             className='img-fluid h-100 w-auto movie-view-img'
           />
         </Col>
-        <Col md={7} className='d-flex flex-column'>
+        <Col md={5} className='d-flex flex-column'>
           <Row className='d-flex flex-row justify-content-between'>
             <Col md={9} className='d-flex flex-column'>
-              <h3 className='my-0'>
-                <span>Title: </span>
+              <h1 className='my-0'>
                 <span>{movie.title}</span>
-              </h3>
+              </h1>
               <h5 className='mt-1 text-left text-muted'>
-                <span>Release: </span>
-                <span>{movie.director.name}</span>
+                <span>{movie.year}</span>
               </h5>
-            </Col>
-            <Col md={3} className='align-self-end mb-2 text-end'>
-              <span>Genre: </span>
-              <span className='fw-bolder'>{movie.genre.name}</span>
+              <span className='fw-bolder fs-4'>{movie.genre.name}</span>              
+              {/* <span className='mt-4 fs-5'>{movie.actors.join(', ')}</span> */}
             </Col>
           </Row>
           <div className='mt-md-5 mb-4'>
-            <div className='text-decoration-underline mb-2'>Description: </div>
             <span>{movie.description}</span>
           </div>
           <Row className='d-flex flex-row justify-content-between mt-auto mb-md-4'>
-            <Col className='text-start'>
+            {/* <Col className='text-start'>
               <FavoriteIcon
                 user={user}
                 movie={movie}
                 updateUserOnFav={updateUserOnFav}
               />
-            </Col>
+            </Col> */}
             <Col className='text-end'>
               <Link to={`/`}>
                 <Button variant='secondary' size='lg'>
@@ -69,7 +64,7 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
         </Col>
       </Row>
       <Row>
-        <h2 className='mt-0'>Similar movies</h2>
+        <h2 className='mt-0 p-3'>Similar movies</h2>
         <hr />
         {console.log(similarMovies)}
         {similarMovies.map((movie) => (
@@ -91,18 +86,21 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
 };
 
 MovieView.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    imageURL: PropTypes.string.isRequired,
-    director: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      bio: PropTypes.string.isRequired
-    }).isRequired,
-    genre: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    }).isRequired,
-    year: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired
-  })).isRequired
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      imageURL: PropTypes.string.isRequired,
+      director: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        bio: PropTypes.string.isRequired
+      }).isRequired,
+      genre: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired
+      }).isRequired,
+      year: PropTypes.string.isRequired,
+      rating: PropTypes.string.isRequired,
+      actors: PropTypes.arrayOf(PropTypes.string).isRequired
+    })
+  ).isRequired
 };
