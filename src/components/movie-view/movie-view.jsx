@@ -37,8 +37,7 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
               </h2>
               <h5 className='mt-1 text-left text-muted fw-bolder'>
                 <span>{movie.year} | {movie.genre.name}</span>
-              </h5>             
-              {/* <span className='mt-4 fs-5'>{movie.actors.join(', ')}</span> */}
+              </h5>
             </Col>
           </Row>
           <div className='mt-md-2 mb-4'>
@@ -99,8 +98,7 @@ MovieView.propTypes = {
         description: PropTypes.string.isRequired
       }).isRequired,
       year: PropTypes.string.isRequired,
-      rating: PropTypes.string.isRequired,
-      actors: PropTypes.arrayOf(PropTypes.string).isRequired
+      rating: PropTypes.string.isRequired
     })
   ).isRequired
 };
