@@ -61,10 +61,10 @@ export const UpdateView = ({ storedToken, storedUser }) => {
   return (
     <Container>
       <Row>
-        <Col md={5}>
+        <Col md={5} className='mx-auto'>
           <CardGroup>
             <Card className='bg-transparent p-3 border-primary'>
-                <Card.Title className='text-center fs-4 fw-bold'>Update User Info</Card.Title>
+                <Card.Title className='fs-4 fw-bold'>Update User Info</Card.Title>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
                     <Form.Label>Username:</Form.Label>
