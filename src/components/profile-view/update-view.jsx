@@ -80,7 +80,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                       We'll never share your email.
                     </Form.Text>
                   </Form.Group>
-                  <Form.Group controlId='forPassword' className='mt-2'>
+                  <Form.Group controlId='forPassword' className='input-group-sm mt-2'>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type='password'
@@ -91,7 +91,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                       placeholder='Enter new password'
                     />
                   </Form.Group>
-                  <Form.Group controlId='forEmail' className='mt-2'>
+                  <Form.Group controlId='forEmail' className='input-group-sm mt-2'>
                     <Form.Label>Email:</Form.Label>
                     <Form.Control
                       type='email'
