@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Form, Row, Col, CardGroup, Card, Container } from 'react-bootstrap'; 
+import { Button, Form, Row, Col, CardGroup, Card, Container } from 'react-bootstrap';
+
+import './update-view.scss';
 
 export const UpdateView = ({ storedToken, storedUser }) => {
   const [ token, setToken ] = useState(storedToken ? storedToken : null);
