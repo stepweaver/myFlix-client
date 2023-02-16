@@ -16,7 +16,7 @@ export const SignupView = () => {
       username: username,
       password: password,
       email: email,
-      birthday: birthday
+      birth: birthday
     };
 
     fetch('https://cthulhuflix.onrender.com/register', {
