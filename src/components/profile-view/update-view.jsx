@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Row, Col, CardGroup, Card } from 'react-bootstrap'; 
+import { Button, Form, Row, Col, CardGroup, Card, Container } from 'react-bootstrap'; 
 
 export const UpdateView = ({ storedToken, storedUser }) => {
   const [ token, setToken ] = useState(storedToken ? storedToken : null);
@@ -57,59 +57,59 @@ export const UpdateView = ({ storedToken, storedUser }) => {
   };
 
   return (
-    <Row className='mt-2'>
-      <Col md={5}>
-        <CardGroup>
-          <Card className='border-0'>
-            <Card.Body>
-              <div className='text-start h2 mb-0'>Update user info</div>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group controlId='forUsername' className='mt-2'>
-                  <Form.Label>Username:</Form.Label>
-                  <Form.Control
-                    type='text'
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    minLength='2'
-                    title='Minimum length: 2 characters'
-                    placeholder='Enter new username'
-                  />
-                  <Form.Text className='text-muted'>
-                    We'll never share your email.
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group controlId='forPassword' className='mt-2'>
-                  <Form.Label>Password:</Form.Label>
-                  <Form.Control
-                    type='password'
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    minLength='6'
-                    title='Minimum length: 6 characters'
-                    placeholder='Enter new password'
-                  />
-                </Form.Group>
-                <Form.Group controlId='forEmail' className='mt-2'>
-                  <Form.Label>Email:</Form.Label>
-                  <Form.Control
-                    type='email'
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    placeholder='Enter new email'
-                  />
-                </Form.Group>
-                <Row>
-                  <Col className='text-end'>
-                    <Button variant='primary' type='submit' className='mt-3'>
-                      Update
-                    </Button>
-                  </Col>
-                </Row>
-              </Form>
-            </Card.Body>
-          </Card>
-        </CardGroup>
-      </Col>
-    </Row>
+    <Container>
+      <Row>
+        <Col md={5}>
+          <CardGroup>
+            <Card className='bg-transparent p-3 border-primary'>
+                <Card.Title className='text-center fs-4 fw-bold'>Update User Info</Card.Title>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control
+                      type='text'
+                      onChange={(e) => setUsername(e.target.value)}
+                      required
+                      minLength='2'
+                      title='Minimum length: 2 characters'
+                      placeholder='Enter new username'
+                    />
+                    <Form.Text className='text-muted'>
+                      We'll never share your email.
+                    </Form.Text>
+                  </Form.Group>
+                  <Form.Group controlId='forPassword' className='mt-2'>
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control
+                      type='password'
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      minLength='6'
+                      title='Minimum length: 6 characters'
+                      placeholder='Enter new password'
+                    />
+                  </Form.Group>
+                  <Form.Group controlId='forEmail' className='mt-2'>
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control
+                      type='email'
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      placeholder='Enter new email'
+                    />
+                  </Form.Group>
+                  <Row>
+                    <Col className='text-end'>
+                      <Button variant='primary' type='submit' className='mt-3'>
+                        Update
+                      </Button>
+                    </Col>
+                  </Row>
+                </Form>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
   );
 };
