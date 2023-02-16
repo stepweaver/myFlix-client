@@ -4,9 +4,9 @@ import { Row, Col } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 
 export const FavoriteMovies = ({ movies, storedUser }) => {
-  const [ user, setUser ] = useState(storedUser ? storedUser : null);
+  const [ user, setUser ] = useState(storedUser || {});
   let favoriteMoviesList = movies.filter((m) =>
-    user.FavoriteMovies.includes(m.id)
+    user && user.FavoriteMovies && user.FavoriteMovies.includes(m.id)
   );
 
   return (
