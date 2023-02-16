@@ -1,4 +1,7 @@
-#loginUsername, 
-#loginPassword {
+.form-control:not(active) {
+  color: white;
+}
+
+.form-control:focus {
   color: white;
 }
