@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import './movie-card.scss';
+
 export const MovieCard = ({ movie, user, updateUserOnFav }) => {
   if (!movie) {
     return <div>Loading...</div>;
@@ -10,12 +12,12 @@ export const MovieCard = ({ movie, user, updateUserOnFav }) => {
 
   return (
     <Link className='text-light text-decoration-none' to={`/movies/${encodeURIComponent(movie.id)}`}>
-      <Card className='h-100 bg-dark'>
-        <Card.Img variant='top' src={movie.imageURL} />
-        <Card.Body>
+      <Card className='h-100 bg-transparent'>
+        <Card.Img className='h-100 mb-4' variant='top' src={movie.imageURL} />
+        {/* <Card.Body>
           <Card.Title className='text-end'>{movie.title}</Card.Title>
           <Card.Text className='text-end'>{movie.year}</Card.Text>
-        </Card.Body>
+        </Card.Body> */}
       </Card>
     </Link>
   );
