@@ -1,26 +1,28 @@
 import React from 'react';
-import { BsFillPlusSquare } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { BsPlusSquare } from 'react-icons/bs';
 
 export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
-  if (!user) return null;
+  if (!user.FavoriteMovies || !Array.isArray(user.FavoriteMovies)) {
+    user.FavoriteMovies = [];
+  }
 
   const token = localStorage.getItem('token');
 
-  const alreadyFavorite = user.FavoriteMovies ? user.FavoriteMovies.find(
+  const alreadyFavorite = user.FavoriteMovies && user.FavoriteMovies.find(
     (favMovieId) => favMovieId === movie.id
-  ) : false;
+  );
 
   const toggleFavorite = () => {
     if (!token) return;
 
-    const url = `https://cthulhuflix.onrender/users/${user.username}/movies/${movie.id}`;
+    const url = `https://cthulhuflix.onrender.com/users/${user.username}/movies/${movie.id}`;
 
     let requestOptions = {
       method: '',
       headers: {
         Authorization: `Bearer ${token}`,
-      },
+      }
     };
 
     let resultAlert = '';
@@ -30,11 +32,6 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       requestOptions.method = 'DELETE';
       resultAlert = `${movie.title} is deleted from the list of favorites`;
       iconChange = () =>
-        document.querySelector('svg').classList.remove('favorite-movie');
-    } else {
-      requestOptions.method = 'POST';
-      resultAlert = `${movie.title} is added to the list of favorites`;
-      iconChange = () =>
         document.querySelector('svg').classList.add('favorite-movie');
     }
 
@@ -43,10 +40,10 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       .then((data) => {
         alert(`${resultAlert}`);
         updateUserOnFav(data);
-        iconChange();
+        document.querySelector('svg').classList.add('favorite-movie');
       })
       .catch((e) => {
-        alert('What did you do!? Something went wrong.');
+        alert('Oops! Something went wrong.');
       });
   };
 
@@ -55,8 +52,10 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       onClick={() => toggleFavorite()}
       className='favorite-icon'
       id='favMovieButton'
+      style={{ textDecoration: 'none', color: 'white' }}
     >
-      {alreadyFavorite ? <BsFillPlusSquare className='favorite-movie' /> : <BsFillPlusSquare />}
+      {alreadyFavorite ? <BsPlusSquare className='favorite-movie' style={{ fontSize: '30px' }} /> : <BsPlusSquare style={{ fontSize: '30px' }} />}
+      <span className='fw-bold' style={{ marginLeft: '10px' }}>{alreadyFavorite ? 'Remove from Favorites' : 'Add to Favorites'}</span>
     </Link>
   );
 };
