@@ -14,10 +14,6 @@ export const MovieCard = ({ movie, user, updateUserOnFav }) => {
     <Link className='text-light text-decoration-none' to={`/movies/${encodeURIComponent(movie.id)}`}>
       <Card className='h-100 bg-transparent'>
         <Card.Img className='h-100 mb-4' variant='top' src={movie.imageURL} />
-        {/* <Card.Body>
-          <Card.Title className='text-end'>{movie.title}</Card.Title>
-          <Card.Text className='text-end'>{movie.year}</Card.Text>
-        </Card.Body> */}
       </Card>
     </Link>
   );
