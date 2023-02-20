@@ -26,11 +26,11 @@ export const DeleteUser = ({ storedToken, storedUser }) => {
   };
 
   return (
-    <Col md={5} className='text-end px-4'>
+    <Col md={5} className='text-end'>
       <div>
         <Button
           onClick={() => handleDeregister(storedUser._id)}
-          className='button-delete'
+          className='button-delete mt-2'
           variant='danger'
         >
           Delete Profile
