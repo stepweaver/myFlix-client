@@ -47,10 +47,10 @@ export const UpdateView = ({ storedToken, storedUser }) => {
     })
     .then((response) => {
       if (response.ok) {
-        alert('Profile updated');
+        alert('Profile updated!');
         updateUser(username);
       } else {
-        alert('Something went wrong');
+        alert('Oops! Something went wrong');
       }
     })
     .catch((error) => {
@@ -64,45 +64,44 @@ export const UpdateView = ({ storedToken, storedUser }) => {
         <Col md={5} className='mx-auto'>
           <CardGroup>
             <Card className='bg-transparent p-3 border-primary'>
-                <Card.Title className='fs-4 fw-bold'>Update User Info</Card.Title>
+                <Card.Title className='fs-3 fw-bold'>Update User Info</Card.Title>
+                <Card.Text>* Indicates a required field</Card.Text>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
-                    <Form.Label>Username:</Form.Label>
+                    <Form.Label>New Username *</Form.Label>
                     <Form.Control
                       type='text'
                       onChange={(e) => setUsername(e.target.value)}
                       required
-                      minLength='2'
-                      title='Minimum length: 2 characters'
+                      minLength='5'
+                      title='Minimum length: 5 characters'
                       placeholder='Enter new username'
                     />
-                    <Form.Text className='text-muted'>
-                      We'll never share your email.
-                    </Form.Text>
                   </Form.Group>
                   <Form.Group controlId='forPassword' className='input-group-sm mt-2'>
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label>New Password *</Form.Label>
                     <Form.Control
                       type='password'
                       onChange={(e) => setPassword(e.target.value)}
-                      required
                       minLength='6'
                       title='Minimum length: 6 characters'
                       placeholder='Enter new password'
                     />
                   </Form.Group>
                   <Form.Group controlId='forEmail' className='input-group-sm mt-2'>
-                    <Form.Label>Email:</Form.Label>
+                    <Form.Label>New Email</Form.Label>
                     <Form.Control
                       type='email'
                       onChange={(e) => setEmail(e.target.value)}
-                      required
                       placeholder='Enter new email'
                     />
+                    <Form.Text className='text-muted'>
+                      We'll never share your email.
+                    </Form.Text>
                   </Form.Group>
                   <Row>
                     <Col className='text-end'>
-                      <Button variant='primary' type='submit' className='mt-3'>
+                      <Button variant='primary' type='submit' className='text-light mt-3'>
                         Update
                       </Button>
                     </Col>
