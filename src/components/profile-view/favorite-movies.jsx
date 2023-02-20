@@ -6,7 +6,7 @@ import { MovieCard } from '../movie-card/movie-card';
 export const FavoriteMovies = ({ movies, storedUser }) => {
   const [ user, setUser ] = useState(storedUser || {});
   let favoriteMoviesList = movies.filter((m) =>
-    user.FavoriteMoviesList(m.id)
+    user && user.FavoriteMovies && user.FavoriteMovies.includes(m.id)
   );
 
   return (
