@@ -45,13 +45,13 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
             <span>{movie.description}</span>
           </div>
           <Row className='d-flex flex-row justify-content-between mt-auto mb-md-4'>
-            {/* <Col className='text-start'>
+            <Col className='text-start'>
               <FavoriteIcon
                 user={user}
                 movie={movie}
                 updateUserOnFav={updateUserOnFav}
               />
-            </Col> */}
+            </Col>
             <Col className='text-end'>
               <Link to={`/`}>
                 <Button variant='secondary' size='lg'>
