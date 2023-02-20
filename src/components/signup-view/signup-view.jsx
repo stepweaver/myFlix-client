@@ -27,7 +27,7 @@ export const SignupView = () => {
       }
     }).then ((response) => {
       if (response.ok) {
-        alert('Great success!');
+        alert('Great success! Click "Ok" to return to the login page.');
         window.location.href = './login';
       } else if (response.status === 400 || response.status === 422) {
         alert(`Username "${username}" is taken`);
