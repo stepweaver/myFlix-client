@@ -19,10 +19,9 @@ export const FavoriteMovies = ({ movies, storedUser }) => {
           {favoriteMoviesList.map((movie) => (
             <Col className='mb-5' key={movie.id} xs={12} sm={6} md={4} lg={3}>
               <MovieCard
-                movieData={movie}
+                movie={movie}
                 user={user}
                 updateUserOnFav={(user) => {
-                  console.log('User updated:', user);
                   setUser(user);
                   localStorage.setItem('user', JSON.stringify(user));
                 }}
