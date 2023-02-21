@@ -30,9 +30,14 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
 
     if (alreadyFavorite) {
       requestOptions.method = 'DELETE';
-      resultAlert = `${movie.title} is deleted from the list of favorites`;
+      resultAlert = `${movie.title} has been deleted from Favorites`;
       iconChange = () =>
         document.querySelector('svg').classList.add('favorite-movie');
+    } else {
+      requestOptions.method = 'POST';
+      resultAlert = `${movie.title} has been added to Favorites`;
+      iconChange = () =>
+      document.querySelector('svg').classList.remove('favorite-movie');
     }
 
     fetch(url, requestOptions)
@@ -40,7 +45,7 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       .then((data) => {
         alert(`${resultAlert}`);
         updateUserOnFav(data);
-        document.querySelector('svg').classList.add('favorite-movie');
+        iconChange();
       })
       .catch((e) => {
         alert('Oops! Something went wrong.');
