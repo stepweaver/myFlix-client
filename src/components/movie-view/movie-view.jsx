@@ -54,7 +54,7 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
             </Col>
             <Col className='text-end'>
               <Link to={`/`}>
-                <Button variant='secondary' size='lg'>
+                <Button variant='secondary' size='md'>
                   Back
                 </Button>
               </Link>
@@ -72,7 +72,6 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
                 movie={movie}
                 user={user}
                 updateUserOnFav={(user) => {
-                  console.log('Update user:', user);
                   setUser(user);
                   localStorage.setItem('user', JSON.stringify(user));
                 }}
