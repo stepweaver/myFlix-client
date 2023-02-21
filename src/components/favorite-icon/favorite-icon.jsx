@@ -31,13 +31,13 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
 
     if (alreadyFavorite) {
       requestOptions.method = 'DELETE';
-      resultAlert = `${movie.title} has been deleted from Favorites`;
+      resultAlert = `${movie.title} removed from Favorites`;
       iconChange = () =>
         document.querySelector('svg').classList.add('favorite-movie');
       updatedUser.FavoriteMovies = updatedUser.FavoriteMovies.filter(favMovieId => favMovieId !== movie.id);
     } else {
       requestOptions.method = 'POST';
-      resultAlert = `${movie.title} has been added to Favorites`;
+      resultAlert = `${movie.title} added to Favorites`;
       iconChange = () =>
       document.querySelector('svg').classList.remove('favorite-movie');
       updatedUser.FavoriteMovies.push(movie.id);
