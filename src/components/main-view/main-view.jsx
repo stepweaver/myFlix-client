@@ -112,7 +112,6 @@ export const MainView = () => {
                         movies={movies}
                         user={user}
                         updateUserOnFav={(user) => {
-                          console.log('Update user:', user);
                           setUser(user);
                           localStorage.setItem('user', JSON.stringify(user));
                         }}
@@ -144,7 +143,6 @@ export const MainView = () => {
                                 movie={movie}
                                 user={user}
                                 updateUserOnFav={(user) => {
-                                  console.log('Update user:', user);
                                   setUser(user);
                                   localStorage.setItem('user', JSON.stringify(user));
                                 }}

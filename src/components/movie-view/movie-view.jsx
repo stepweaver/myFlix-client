@@ -8,7 +8,6 @@ import { FavoriteIcon } from '../favorite-icon/favorite-icon';
 import { MovieCard } from '../movie-card/movie-card';
 
 export const MovieView = ({ movies, user, updateUserOnFav }) => {
-  console.log('MovieView prop', updateUserOnFav);
   const { movieId } = useParams();
   const movie = movies.find((m) => m.id === movieId);
   window.scrollTo(0, 0);
