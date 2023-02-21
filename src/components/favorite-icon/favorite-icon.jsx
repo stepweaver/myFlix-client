@@ -3,20 +3,21 @@ import { Link } from 'react-router-dom';
 import { BsPlusSquare } from 'react-icons/bs';
 
 export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
-  if (!user.FavoriteMovies || !Array.isArray(user.FavoriteMovies)) {
-    user.FavoriteMovies = [];
+  let updatedUser = { ...user };
+  if (!updatedUser.FavoriteMovies || !Array.isArray(updatedUser.FavoriteMovies)) {
+    updatedUser.FavoriteMovies = [];
   }
 
   const token = localStorage.getItem('token');
 
-  const alreadyFavorite = user.FavoriteMovies && user.FavoriteMovies.find(
+  const alreadyFavorite = updatedUser.FavoriteMovies && updatedUser.FavoriteMovies.find(
     (favMovieId) => favMovieId === movie.id
   );
 
   const toggleFavorite = () => {
     if (!token) return;
 
-    const url = `https://cthulhuflix.onrender.com/users/${user.username}/movies/${movie.id}`;
+    const url = `https://cthulhuflix.onrender.com/users/${updatedUser.username}/movies/${movie.id}`;
 
     let requestOptions = {
       method: '',
@@ -33,18 +34,20 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       resultAlert = `${movie.title} has been deleted from Favorites`;
       iconChange = () =>
         document.querySelector('svg').classList.add('favorite-movie');
+      updatedUser.FavoriteMovies = updatedUser.FavoriteMovies.filter(favMovieId => favMovieId !== movie.id);
     } else {
       requestOptions.method = 'POST';
       resultAlert = `${movie.title} has been added to Favorites`;
       iconChange = () =>
       document.querySelector('svg').classList.remove('favorite-movie');
+      updatedUser.FavoriteMovies.push(movie.id);
     }
 
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         alert(`${resultAlert}`);
-        updateUserOnFav(data);
+        updateUserOnFav(updatedUser);
         iconChange();
       })
       .catch((e) => {
