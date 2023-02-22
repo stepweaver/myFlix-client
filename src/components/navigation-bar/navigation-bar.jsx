@@ -22,14 +22,11 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               <Navbar.Toggle aria-controls='basic-navbar-nav' />
             </div>
             <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='ms-auto text-end nav-links'>
+              <Nav className='me-auto fs-4 nav-links'>
                 {!user && (
                   <>
-                    <Nav.Link as={Link} to='/login'>
-                      Login
-                    </Nav.Link>
                     <Nav.Link as={Link} to='/register'>
-                      Signup
+                      Register New User
                     </Nav.Link>
                   </>
                 )}
