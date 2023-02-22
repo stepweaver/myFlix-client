@@ -11,9 +11,9 @@ export const MovieCard = ({ movie, user, updateUserOnFav }) => {
   }
 
   return (
-    <Link className='text-light text-decoration-none' to={`/movies/${encodeURIComponent(movie.id)}`}>
+    <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
       <Card className='h-100 bg-transparent'>
-        <Card.Img className='h-100 mb-4' variant='top' src={movie.imageURL} />
+        <Card.Img className='h-100 mb-5' variant='top' src={movie.imageURL} />
       </Card>
     </Link>
   );
