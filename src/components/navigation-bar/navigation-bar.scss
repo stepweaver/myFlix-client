@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Cthulhu';
+  src: url('../../../public/fonts/Creepster-Regular.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-face {
+  font-family: 'Cthulhu';
+}
+
+.navbar-custom {
+  background-color: transparent;
+  padding: 0;
+}
+
+.navbar-row {
+  margin: 0;
+  align-items: center;
+}
+
+.brand {
+  margin-right: 10px;
+}
+
+.nav-links {
+  margin-left: auto;
+}
+
+.cthulhuflix {
+  font-family: 'Cthulhu';
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 5rem;
+  color: #008f11;
+  text-shadow: 0 0 0 rgba(0, 143, 17, 0.8), 0 0 20px rgba(0, 143, 17, 0.8), 0 0 30px rgba(0, 143, 17, 0.8), 0 0 40px rgba(0, 143, 17, 0.8), 0 0 50px rgba(0, 143, 17, 0.8);
+}
