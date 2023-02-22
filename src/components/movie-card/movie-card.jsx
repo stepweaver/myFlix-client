@@ -10,10 +10,39 @@ export const MovieCard = ({ movie, user, updateUserOnFav }) => {
     return <div>Loading...</div>;
   }
 
+  const handleMouseEnter = () => {
+    const images = document.querySelectorAll('.movie-card-img');
+    images.forEach(img => {
+      if (img !== cardImg) {
+        img.classList.add('movie-card-img-highlight');
+      }
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const images = document.querySelectorAll('.movie-card-img');
+    images.forEach(img => {
+      if (img !== cardImg) {
+        img.classList.remove('movie-card-img-highlight');
+      }
+    });
+  };
+
+  let cardImg;
+
   return (
     <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-      <Card className='h-100 bg-transparent'>
-        <Card.Img className='h-100 mb-5' variant='top' src={movie.imageURL} />
+      <Card
+        className='h-100 bg-transparent movie-card'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Card.Img
+          ref={img => (cardImg = img)}
+          className='h-100 mb-5 movie-card-img'
+          variant='top'
+          src={movie.imageURL}
+        />
       </Card>
     </Link>
   );
