@@ -34,7 +34,7 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       resultAlert = `${movie.title} removed from Favorites`;
       iconChange = () =>
         document.querySelector('svg').classList.remove('favorite-movie');
-      updatedUser.FavoriteMovies = updatedUser.FavoriteMovies.filter(favMovieId => favMovieId !== movie.id);
+      updatedUser.FavoriteMovies = updatedUser.FavoriteMovies.filter((favMovieId) => favMovieId !== movie.id);
     } else {
       requestOptions.method = 'POST';
       resultAlert = `${movie.title} added to Favorites`;
@@ -44,16 +44,21 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
     }
 
     fetch(url, requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        alert(`${resultAlert}`);
-        updateUserOnFav(updatedUser);
-        iconChange();
-      })
-      .catch((e) => {
-        alert('Oops! Something went wrong.');
-      });
-  };
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      alert(`${resultAlert}`);
+      updateUserOnFav(updatedUser);
+      iconChange();
+    })
+    .catch((e) => {
+      alert('Oops! Something went wrong.');
+    });
+};
 
   return (
     <Link
