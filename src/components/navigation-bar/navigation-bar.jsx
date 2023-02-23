@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -5,30 +6,36 @@ import logo from '../../../images/cthulhuLogo.png';
 import './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleToggle = () => {
+    setExpanded(!expanded);
+  }
+
   return (
-    <Navbar
-      collapseOnSelect
-      variant='dark'
-      expand='lg'
-      className='navbar-custom'
-    >
-      <Container>
+    <Navbar variant='dark' className='navbar-custom' expanded={expanded}>
+      <Container fluid>
         <Row className='navbar-row'>
           <Col>
-            <div className="d-flex justify-content-between w-100">
+            <div className='d-flex justify-content-between align-items-center w-100'>
               <Navbar.Brand as={Link} to='/' className='brand'>
-                <img src={logo} width='175' className='p-4'/>
+                <img src={logo} width='175' className='p-4' alt='CthulhuFlix logo' />
               </Navbar.Brand>
-              <Navbar.Toggle aria-controls='basic-navbar-nav' />
+              <Navbar.Toggle onClick={handleToggle} aria-controls='basic-navbar-nav' />
             </div>
+          </Col>
+          <Col className='text-center'>
+            <h1 className='cthulhuflix'>CthulhuFlix</h1>       
+          </Col>
+          <Col>
             <Navbar.Collapse id='basic-navbar-nav'>
-              <Nav className='me-auto fs-5 nav-links'>
+              <Nav className='fs-5 nav-links'>
                 {!user && (
                   <>
                     <Nav.Link as={Link} to='/register'>
                       Register
                     </Nav.Link>
-                    <Nav.Link className='mx-auto' as={Link} to='/'>
+                    <Nav.Link as={Link} to='/'>
                       Login
                     </Nav.Link>
                   </>
@@ -48,9 +55,6 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 )}
               </Nav>
             </Navbar.Collapse>
-          </Col>
-          <Col>
-            <h1 className='text-center cthulhuflix'>CthulhuFlix</h1>       
           </Col>
         </Row>
       </Container>
