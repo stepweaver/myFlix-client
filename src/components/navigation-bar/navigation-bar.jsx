@@ -37,13 +37,13 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               )}
               {user && (
                 <>
-                  <Nav.Link as={Link} to={'/'} className='fs-3'>
+                  <Nav.Link as={Link} to={'/'} className='fs-4'>
                     Home
                   </Nav.Link>
-                  <Nav.Link as={Link} to={`/users/${user.username}`} className='fs-3'>
+                  <Nav.Link as={Link} to={`/users/${user.username}`} className='fs-4'>
                     Profile
                   </Nav.Link>
-                  <Nav.Link onClick={onLoggedOut} className='fs-3'>
+                  <Nav.Link onClick={onLoggedOut} className='fs-4'>
                     Logout
                   </Nav.Link>
                 </>
