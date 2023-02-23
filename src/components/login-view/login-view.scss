@@ -1,10 +1,10 @@
 .form-control:not(active) {
-  color: white;
+  color: #fff;
 }
 
 .form-control:focus {
-  color: white;
-  border-bottom: 2px solid #fff;
+  color: #fff;
+  border-bottom: 2px solid green;
 }
 
 .form-control:valid {
