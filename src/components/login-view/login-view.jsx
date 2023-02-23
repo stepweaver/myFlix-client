@@ -52,6 +52,7 @@ export const LoginView = ({ onLoggedIn }) => {
                     placeholder='Enter Username'
                     minLength='2'
                     required
+                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
                   />
                 </Form.Group>
                 <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
@@ -62,6 +63,7 @@ export const LoginView = ({ onLoggedIn }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder='Enter Password'
                     required
+                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
                   />
                 </Form.Group>
                 <Button
