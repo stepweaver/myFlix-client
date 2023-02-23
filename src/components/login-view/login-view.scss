@@ -4,4 +4,24 @@
 
 .form-control:focus {
   color: white;
+  border-bottom: 2px solid #fff;
+}
+
+.form-control:valid {
+  border-color: #fff;
+}
+
+.input-group-sm label,
+.card-title {
+  letter-spacing: 2px;
+}
+
+.btn-primary {
+  height: 45px;
+  letter-spacing: 1px;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 0 145px 5px green;
 }
