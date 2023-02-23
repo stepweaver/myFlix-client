@@ -15,22 +15,22 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
       <Container>
         <div className='col-sm'>
           <Navbar.Brand as={Link} to='/' className='brand'>
-            <img src={logo} width='175' className='p-4'/>
+            <img src={logo} width='120' className='mt-4' />
           </Navbar.Brand>
         </div>
         <div className='col-sm'>
           <h1 className='text-center cthulhuflix'>CthulhuFlix</h1>       
         </div>
-        <div className='col-sm'>
+        <div className='col-sm me-auto'>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse className='text-center w-100 mb-3' id='basic-navbar-nav'>
+          <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='fs-5 nav-links'>
               {!user && (
                 <>
-                  <Nav.Link as={Link} to='/register'>
+                  <Nav.Link className='me-auto' as={Link} to='/register'>
                     Register
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/'>
+                  <Nav.Link className='me-auto' as={Link} to='/'>
                     Login
                   </Nav.Link>
                 </>
