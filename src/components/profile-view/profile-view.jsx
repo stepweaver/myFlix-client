@@ -12,13 +12,13 @@ export const ProfileView = ({ movies }) => {
 
   return (
     <>
-      <Row>
-        <Col className='mt-5'>
+      <Row className='mt-5'>
+        <Col>
+          <UpdateView storedToken={storedToken} storedUser={storedUser} />
+        </Col>
+        <Col className='mx-5'>
           <UserInfo user={storedUser} />
           <DeleteUser storedToken={storedToken} storedUser={storedUser} />
-        </Col>
-        <Col className='mt-5'>
-          <UpdateView storedToken={storedToken} storedUser={storedUser} />
         </Col>
       </Row>
       <Row className='mt-5'>
