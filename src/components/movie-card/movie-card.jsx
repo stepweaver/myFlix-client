@@ -1,31 +1,58 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movieData, onMovieClick }) => {
+import './movie-card.scss';
+
+export const MovieCard = ({ movie, user, updateUserOnFav }) => {
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
+
+  const handleMouseEnter = () => {
+    const images = document.querySelectorAll('.movie-card-img');
+    images.forEach(img => {
+      if (img !== cardImg) {
+        img.classList.add('movie-card-img-highlight');
+      }
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const images = document.querySelectorAll('.movie-card-img');
+    images.forEach(img => {
+      if (img !== cardImg) {
+        img.classList.remove('movie-card-img-highlight');
+      }
+    });
+  };
+
+  let cardImg;
+
   return (
-    <Card
-      className='h-100 bg-dark'
-      onClick={() => onMovieClick(movieData)}>
-      <Card.Img variant='top' src={movieData.image} />
-      <Card.Body>
-        <Card.Title>{movieData.title}</Card.Title>
-        <Card.Text>{movieData.director}</Card.Text>
-      </Card.Body>
-    </Card>
+    <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+      <Card
+        className='h-100 bg-transparent movie-card'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Card.Img
+          ref={img => (cardImg = img)}
+          className='h-100 mb-5 movie-card-img'
+          variant='top'
+          src={movie.imageURL}
+        />
+      </Card>
+    </Link>
   );
 };
 
 MovieCard.propTypes = {
-  movieData: PropTypes.shape({
+  movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    actors: PropTypes.array.isRequired
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+    imageURL: PropTypes.string.isRequired
+  }).isRequired
 };
