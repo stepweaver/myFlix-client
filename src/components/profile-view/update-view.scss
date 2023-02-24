@@ -1,7 +1,27 @@
-.form-control:not(active) {
-  color: white;
+.form-control:not(:focus) {
+  color: #fff;
 }
 
 .form-control:focus {
-  color: white;
+  color: #fff;
+  border-bottom: 2px solid green;
+}
+
+.form-control:valid {
+  border-color: #fff;
+}
+
+.input-group-sm label,
+.card-title {
+  letter-spacing: 2px;
+}
+
+.btn-primary {
+  height: 45px;
+  letter-spacing: 1px;
+}
+
+.update-card {
+  border-radius: 15px;
+  box-shadow: 0 0 145px 5px green;
 }
