@@ -63,8 +63,7 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
       </Row>
       {similarMovies.length > 0 && (
         <Row>
-          <h2 className='mt-0 p-3'>Similar movies</h2>
-          <hr />
+          <h2 className='mt-5 mb-5 p-3'>SIMILAR MOVIES</h2>
           {similarMovies.map((movie) => (
             <Col key={movie.id} xs={12} sm={6} md={4} lg={3}>
               <MovieCard
