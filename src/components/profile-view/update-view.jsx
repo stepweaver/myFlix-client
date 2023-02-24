@@ -61,7 +61,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
   return (
     <Container>
       <Row>
-        <Col md={5} className='mx-auto'>
+        <Col>
           <CardGroup>
             <Card className='bg-transparent p-3 border-primary'>
                 <Card.Title className='fs-3 fw-bold'>Update User Info</Card.Title>
