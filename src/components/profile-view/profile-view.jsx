@@ -27,3 +27,5 @@ export const ProfileView = ({ movies }) => {
     </>
   );
 };
+
+//TODO: Add 'remove from favorites' option to the ProfileView Rendered favorites. Similarly, add 'add to favorites option to the similar movies cards'.
