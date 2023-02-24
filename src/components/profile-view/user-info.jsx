@@ -10,7 +10,7 @@ export const UserInfo = ({ user }) => {
       <Col className='text-start mb-5'>
         <CardGroup>
           <Card className='bg-transparent mt-5 mb-5'>
-            <Card.Title className='mb-4 text-uppercase fs-4 fw-bold'>User Info</Card.Title>
+            <Card.Title className='mb-4 text-uppercase fs-4'>User Info</Card.Title>
             <Card.Text className='fs-5'>Username: {user.username}</Card.Text>
             <Card.Text className='fs-5'>Email: {user.email}</Card.Text>
             <Card.Text className='fs-5'>Birthday: {userBirthday}</Card.Text>

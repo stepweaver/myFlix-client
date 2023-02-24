@@ -40,8 +40,8 @@ export const LoginView = ({ onLoggedIn }) => {
       <Row>
         <Col>
           <CardGroup>
-            <Card className='login-card bg-transparent p-3 mt-5 border-primary fw-bold text-uppercase card-title'>
-              <Card.Title className='text-center fs-4'>Login</Card.Title>
+            <Card className='login-card bg-transparent p-3 mt-5 border-primary text-uppercase'>
+              <Card.Title className='text-center fs-4 card-title'>Login</Card.Title>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='loginUsername' className='input-group-sm mt-2'>
                 <Form.Label>Username</Form.Label>

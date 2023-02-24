@@ -64,7 +64,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
         <Col>
           <CardGroup>
             <Card className='bg-transparent p-3 border-primary update-card text-uppercase'>
-              <Card.Title className='fs-3 fw-bold'>Update User Info</Card.Title>
+              <Card.Title className='fs-3'>Update User Info</Card.Title>
               <Card.Text>* Indicates a required field</Card.Text>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
@@ -107,7 +107,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                 </Form.Group>
                 <Row>
                   <Col className='text-end'>
-                    <Button variant='primary' type='submit' className='text-uppercase fs-5 mt-3 btn-primary w-100'>
+                    <Button variant='primary' type='submit' className='text-uppercase fs-5 mt-3 btn-primary w-100 fw-bold'>
                       Update
                     </Button>
                   </Col>

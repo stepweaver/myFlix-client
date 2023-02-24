@@ -42,8 +42,8 @@ export const SignupView = () => {
       <Row>
         <Col>
           <CardGroup>
-            <Card className='signup-card bg-transparent p-3 mt-5 border-primary text-uppercase fw-bold'>
-              <Card.Title className='text-center fs-3 fw-bold'>New User Registration</Card.Title>
+            <Card className='signup-card bg-transparent p-3 mt-5 border-primary text-uppercase'>
+              <Card.Title className='text-center fs-3'>New User Registration</Card.Title>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='signupUsername' className='input-group-sm mt-2'>
                 <Form.Label>Username</Form.Label>
