@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import { FavoriteIcon } from '../favorite-icon/favorite-icon';
 import { MovieCard } from '../movie-card/movie-card';
 
+import './movie-view.scss'
+
 export const MovieView = ({ movies, user, updateUserOnFav }) => {
   const { movieId } = useParams();
   const movie = movies.find((m) => m.id === movieId);
@@ -40,24 +42,29 @@ export const MovieView = ({ movies, user, updateUserOnFav }) => {
               </h5>
             </Col>
           </Row>
-          <div className='mt-md-2 mb-4'>
+          <div className='mt-2'>
             <span>{movie.description}</span>
           </div>
-          <Row className='d-flex flex-row justify-content-between mt-auto mb-md-4'>
-            <Col className='text-start'>
-              <FavoriteIcon
-                user={user}
-                movie={movie}
-                updateUserOnFav={updateUserOnFav}
-              />
-            </Col>
-            <Col className='text-end'>
-              <Link to={`/`}>
-                <Button variant='secondary' size='md'>
-                  Back
-                </Button>
-              </Link>
-            </Col>
+          <Row className='d-flex flex-row justify-content-between mt-auto mb-5 text-start'>
+            <FavoriteIcon
+              user={user}
+              movie={movie}
+              updateUserOnFav={updateUserOnFav}
+            />
+          </Row>
+          <Row className='mb-3'>
+            <Link to={`/`}>
+              <Button variant='secondary' size='md' className='fw-bold w-25'>
+                HOME
+              </Button>
+            </Link>
+          </Row>
+          <Row>
+            <Link to={`/users/${user.username}`}>
+              <Button variant='secondary' size='md' className='fw-bold w-25'>
+                PROFILE
+              </Button>
+            </Link>
           </Row>
         </Col>
       </Row>
