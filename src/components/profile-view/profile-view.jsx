@@ -29,3 +29,5 @@ export const ProfileView = ({ movies }) => {
 };
 
 //TODO: Add 'remove from favorites' option to the ProfileView Rendered favorites. Similarly, add 'add to favorites option to the similar movies cards'.
+//TODO: Fix clicking Back button - add options return to Home or return to Profile?
+//? Why does logout clear my favorite movies? Is it because the token is cleared out? How do I address this?
