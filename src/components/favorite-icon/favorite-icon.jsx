@@ -65,10 +65,10 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       onClick={() => toggleFavorite()}
       className='favorite-icon'
       id='favMovieButton'
-      style={{ textDecoration: 'none', color: 'white' }}
+      style={{ textDecoration: 'none', color: 'green' }}
     >
-      {alreadyFavorite ? <BsPlusSquare className='favorite-movie' style={{ fontSize: '30px' }} /> : <BsPlusSquare style={{ fontSize: '30px' }} />}
-      <span className='fw-bold' style={{ marginLeft: '10px' }}>{alreadyFavorite ? 'Remove from Favorites' : 'Add to Favorites'}</span>
+      {alreadyFavorite ? <BsPlusSquare className='favorite-movie' style={{ fontSize: '30px' }} /> : <BsPlusSquare style={{ fontSize: '35px' }} />}
+      <span className='fw-bold' style={{ marginLeft: '10px', fontSize: '20px' }}>{alreadyFavorite ? 'Remove from Favorites' : 'Add to Favorites'}</span>
     </Link>
   );
 };
