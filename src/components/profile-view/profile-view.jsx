@@ -21,9 +21,9 @@ export const ProfileView = ({ movies }) => {
           <UpdateView storedToken={storedToken} storedUser={storedUser} />
         </Col>
       </Row>
-      <Row>
+      <Row className='mt-5'>
+        <FavoriteMovies movies={movies} storedUser={storedUser} />
       </Row>
-      <FavoriteMovies movies={movies} storedUser={storedUser} />
     </>
   );
 };
