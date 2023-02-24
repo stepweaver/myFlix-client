@@ -65,7 +65,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
           <CardGroup>
             <Card className='bg-transparent p-3 border-primary update-card text-uppercase'>
               <Card.Title className='fs-3'>Update User Info</Card.Title>
-              <Card.Text>* Indicates a required field</Card.Text>
+              <Card.Text className='text-capitalize'>* Indicates a required field</Card.Text>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
                   <Form.Label className='text-light'>New Username *</Form.Label>
