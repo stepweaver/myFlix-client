@@ -6,9 +6,8 @@ import './update-view.scss';
 export const UpdateView = ({ storedToken, storedUser }) => {
   const [ token, setToken ] = useState(storedToken ? storedToken : null);
   const [ user, setUser ] = useState(storedUser ? storedUser : null);
-
   const [ username, setUsername ] = useState(user.username);
-  const [ password, setPassword ] = useState();
+  const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState(user.email);
   const [ birthday, setBirthday ] = useState(user.birthday);
 
@@ -31,6 +30,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     const data = {
       username: username,
       password: password,
@@ -63,12 +63,12 @@ export const UpdateView = ({ storedToken, storedUser }) => {
       <Row>
         <Col>
           <CardGroup>
-            <Card className='bg-transparent p-3 border-primary update-card text-uppercase'>
-              <Card.Title className='fs-3'>Update User Info</Card.Title>
-              <Card.Text className='text-capitalize'>* Indicates a required field</Card.Text>
+            <Card className='bg-transparent p-3 border-primary update-card'>
+              <Card.Title className='fs-3 text-uppercase'>Update User Info</Card.Title>
+              <Card.Text>* Indicates a required field</Card.Text>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light'>New Username *</Form.Label>
+                  <Form.Label className='text-light text-uppercase'>New Username *</Form.Label>
                   <Form.Control
                     type='text'
                     onChange={(e) => setUsername(e.target.value)}
@@ -81,7 +81,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                   />
                 </Form.Group>
                 <Form.Group controlId='forPassword' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light'>New Password *</Form.Label>
+                  <Form.Label className='text-light text-uppercase'>New Password *</Form.Label>
                   <Form.Control
                     type='password'
                     onChange={(e) => setPassword(e.target.value)}
@@ -93,7 +93,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                   />
                 </Form.Group>
                 <Form.Group controlId='forEmail' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light'>New Email</Form.Label>
+                  <Form.Label className='text-light text-uppercase'>New Email</Form.Label>
                   <Form.Control
                     type='email'
                     onChange={(e) => setEmail(e.target.value)}
@@ -101,8 +101,8 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                     className='form-control'
                     style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
                   />
-                  <Form.Text className='text-muted text-lowercase'>
-                    We'll never share your email.
+                  <Form.Text className='text-muted'>
+                    We'll never share your email
                   </Form.Text>
                 </Form.Group>
                 <Row>
