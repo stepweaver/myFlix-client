@@ -29,7 +29,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventD
+    event.preventDefault
     const data = {
       username: username,
       password: password,
