@@ -5,6 +5,7 @@
 .form-control:focus {
   color: #fff;
   border-bottom: 2px solid green;
+  filter: drop-shadow(5px 10px 10px green);
 }
 
 .form-control:valid {
@@ -14,6 +15,7 @@
 .input-group-sm label,
 .card-title {
   letter-spacing: 2px;
+  filter: drop-shadow(10px 10px 4px green);
 }
 
 .btn-primary {
