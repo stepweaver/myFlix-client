@@ -66,7 +66,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
               <Card.Text>* Indicates a required field</Card.Text>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light text-uppercase'>New Username *</Form.Label>
+                  <Form.Label className='text-light'>NEW USERNAME *</Form.Label>
                   <Form.Control
                     type='text'
                     onChange={(e) => setUsername(e.target.value)}
@@ -79,10 +79,11 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                   />
                 </Form.Group>
                 <Form.Group controlId='forEmail' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light text-uppercase'>New Email</Form.Label>
+                  <Form.Label className='text-light'>NEW EMAIL *</Form.Label>
                   <Form.Control
                     type='email'
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                     placeholder='Enter new email'
                     className='form-control'
                     style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
@@ -92,7 +93,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId='forPassword' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light text-uppercase'>New Password *</Form.Label>
+                  <Form.Label className='text-light'>NEW PASSWORD *</Form.Label>
                   <Form.Control
                     type='password'
                     onChange={(e) => setPassword(e.target.value)}
