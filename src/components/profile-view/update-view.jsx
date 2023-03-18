@@ -33,8 +33,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
     const data = {
       username: username,
       password: password,
-      email: email,
-      birthday: birthday
+      email: email
     };
 
     fetch(`https://cthulhuflix.onrender.com/users/${storedUser.username}`, {
