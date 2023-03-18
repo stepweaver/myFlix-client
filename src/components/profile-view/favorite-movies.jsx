@@ -15,7 +15,7 @@ export const FavoriteMovies = ({ movies, storedUser }) => {
         <Col>No favorites selected</Col>
       ) : (
         <>
-          <div className='text-start h2 mb-4'>Favorites</div>
+          <div className='text-start h2 mb-4'>FAVORITES</div>
           {favoriteMoviesList.map((movie) => (
             <Col className='mt-5' key={movie.id} xs={12} sm={6} md={4} lg={3}>
               <MovieCard
