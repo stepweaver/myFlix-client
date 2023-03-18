@@ -62,7 +62,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
         <Col>
           <CardGroup>
             <Card className='bg-transparent p-3 border-primary update-card'>
-              <Card.Title className='fs-3 text-uppercase'>Update User Info</Card.Title>
+              <Card.Title className='fs-3'>UPDATE USER INFO</Card.Title>
               <Card.Text>* Indicates a required field</Card.Text>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='forUsername' className='input-group-sm mt-2'>
@@ -74,18 +74,6 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                     minLength='5'
                     title='Minimum length: 5 characters'
                     placeholder='Enter new username'
-                    className='form-control'
-                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-                  />
-                </Form.Group>
-                <Form.Group controlId='forPassword' className='input-group-sm mt-2'>
-                  <Form.Label className='text-light text-uppercase'>New Password *</Form.Label>
-                  <Form.Control
-                    type='password'
-                    onChange={(e) => setPassword(e.target.value)}
-                    minLength='6'
-                    title='Minimum length: 6 characters'
-                    placeholder='Enter new password'
                     className='form-control'
                     style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
                   />
@@ -102,6 +90,18 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                   <Form.Text className='text-muted'>
                     We'll never share your email
                   </Form.Text>
+                </Form.Group>
+                <Form.Group controlId='forPassword' className='input-group-sm mt-2'>
+                  <Form.Label className='text-light text-uppercase'>New Password *</Form.Label>
+                  <Form.Control
+                    type='password'
+                    onChange={(e) => setPassword(e.target.value)}
+                    minLength='6'
+                    title='Minimum length: 6 characters'
+                    placeholder='Enter new password'
+                    className='form-control'
+                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+                  />
                 </Form.Group>
                 <Row>
                   <Col className='text-end'>
