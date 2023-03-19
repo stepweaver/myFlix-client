@@ -40,11 +40,11 @@ export const LoginView = ({ onLoggedIn }) => {
       <Row>
         <Col>
           <CardGroup>
-            <Card className='bg-transparent p-3 mt-5 border-primary'>
-              <Card.Title className='text-center fs-4 fw-bold'>Login</Card.Title>
+            <Card className='login-card bg-transparent p-3 mt-5 border-primary text-uppercase'>
+              <Card.Title className='text-center fs-4 card-title'>Login</Card.Title>
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='loginUsername' className='input-group-sm mt-2'>
-                <Form.Label>Username:</Form.Label>
+                <Form.Label>Username</Form.Label>
                   <Form.Control
                     type='text' 
                     value={username}
@@ -52,21 +52,22 @@ export const LoginView = ({ onLoggedIn }) => {
                     placeholder='Enter Username'
                     minLength='2'
                     required
+                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
                   />
                 </Form.Group>
                 <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
-                <Form.Label>Password:</Form.Label>
+                <Form.Label>Password</Form.Label>
                   <Form.Control
                     type='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder='Enter Password'
                     required
+                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
                   />
                 </Form.Group>
                 <Button
-                  className='mt-2'
-                  variant='primary'
+                  className='mt-3 text-uppercase w-100 fw-bold fs-5'
                   type='submit'
                 >
                   Submit
@@ -77,6 +78,5 @@ export const LoginView = ({ onLoggedIn }) => {
         </Col>
       </Row>
     </Container>
-    
   );
 };
