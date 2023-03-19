@@ -107,7 +107,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
                 <Row>
                   <Col className='text-end'>
                     <Button variant='primary' type='submit' className='text-uppercase fs-5 mt-3 btn-primary w-100 fw-bold'>
-                      Update
+                      UPDATE
                     </Button>
                   </Col>
                 </Row>
