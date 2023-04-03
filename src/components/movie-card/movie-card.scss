@@ -5,15 +5,34 @@
 }
 
 .movie-card:hover {
-  transform: translateY(-30px) rotateX(5deg);
+  animation: bounce 0.5s ease;
+  transform-origin: center bottom;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   z-index: 1;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-10px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .movie-card-img-highlight {
   opacity: 1;
   filter: brightness(50%);
-  filter: blur(5px);
+  filter: blur(1px);
 }
 
 .movie-card-img {
