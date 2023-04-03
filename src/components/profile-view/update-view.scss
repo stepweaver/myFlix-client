@@ -5,17 +5,17 @@
 .form-control:focus {
   color: #fff;
   border-bottom: 2px solid green;
-  filter: drop-shadow(5px 10px 10px green);
+  filter: drop-shadow(0px 0px 7px green);
 }
 
 .form-control:valid {
   border-color: #fff;
 }
 
-.input-group-sm label,
+.input-group-sm title,
 .card-title {
   letter-spacing: 2px;
-  filter: drop-shadow(10px 10px 4px green);
+  filter: drop-shadow(3px 8px 3px green);
 }
 
 .btn-primary {
