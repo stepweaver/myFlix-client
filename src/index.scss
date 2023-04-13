@@ -1,7 +1,7 @@
 $primary: #008f11;
 $body-bg: black;
 
-@import '~bootstrap/scss/bootstrap.scss';
+@import 'node_modules/scss/bootstrap.scss';
 
 body {
   background-image: url('../images/cthulhuBG.jpg');
