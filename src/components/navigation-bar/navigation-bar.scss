@@ -23,13 +23,13 @@
 }
 
 .nav-links a {
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
 }
 
 .nav-links a:hover {
   color: #008f11;
   text-shadow: 0 0 10px rgba(0, 143, 17, 0.8), 0 0 20px rgba(0, 143, 17, 0.8), 0 0 30px rgba(0, 143, 17, 0.8);
-  transform: scale(1.2);
+  transform: scale(.9);
 }
 
 .cthulhuflix {
