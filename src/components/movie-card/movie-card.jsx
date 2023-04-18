@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 import './movie-card.scss';
 
-export const MovieCard = ({ movie, user, updateUserOnFav }) => {
+export const MovieCard = ({ movie }) => {
   if (!movie) {
-    return <div>Loading...</div>;
+    return <Col>Loading...</Col>;
   }
 
   const handleMouseEnter = () => {
