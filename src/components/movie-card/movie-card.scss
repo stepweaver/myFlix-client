@@ -1,11 +1,5 @@
-.movie-card {
-  position: relative;
-  perspective: 1000px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
 .movie-card:hover {
-  animation: bounce 0.5s ease;
+  animation: bounce 1s ease;
   transform-origin: center bottom;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -30,11 +24,5 @@
 }
 
 .movie-card-img-highlight {
-  opacity: 1;
   filter: brightness(85%);
-}
-
-.movie-card-img {
-  position: relative;
-  z-index: 2;
 }
