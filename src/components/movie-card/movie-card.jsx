@@ -39,8 +39,8 @@ export const MovieCard = ({ movie }) => {
       >
         <Card.Img
           ref={img => (cardImg = img)}
-          className='h-100 mb-5 movie-card-img'
-          variant='top'
+          className='mb-3 movie-card-img'
+          // variant='top'
           src={movie.imageURL}
         />
       </Card>
