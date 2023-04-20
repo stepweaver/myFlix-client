@@ -138,7 +138,7 @@ export const MainView = () => {
                       ) : (
                         <Row className='justify-content-center py-5'>
                           {movies.map((movie) => (
-                            <Col className='mb-b' key={movie.id} xs={12} sm={6} md={4} lg={3}>
+                            <Col className='mb-b' key={movie.id} xl={2} lg={3} md={4} sm={12} xs={12}>
                               <MovieCard
                                 movie={movie}
                                 user={user}
