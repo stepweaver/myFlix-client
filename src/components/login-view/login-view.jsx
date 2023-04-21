@@ -39,7 +39,7 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Card className='login-card bg-transparent p-3 mt-5' style={{ width: '20rem' }}>
+    <Card className='login-card bg-black p-3 mt-5' style={{ width: '20rem' }}>
       <Card.Body>
         <Card.Title className='text-center fs-4 card-title text-uppercase'>Login</Card.Title>
         <Form onSubmit={handleSubmit}>
