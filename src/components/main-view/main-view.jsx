@@ -10,11 +10,17 @@ import { ProfileView } from '../profile-view/profile-view';
 import { SignupView } from '../signup-view/signup-view';
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const storedUser = localStorage.getItem('user');
   const storedToken = localStorage.getItem('token');
   const [ movies, setMovies ] = useState([]);
   const [ user, setUser ] = useState(storedUser ? storedUser : null);
   const [ token, setToken ] = useState(storedToken ? storedToken : null);
+  const [ viewMovies, setViewMovies ] = useState(movies);
+
+  const updateUser = user => {
+    setUser(user);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
 
   useEffect(() => {
     if (!token) {
@@ -52,6 +58,10 @@ export const MainView = () => {
     });
   }, [token]);
 
+  useEffect(() => {
+    setViewMovies(movies);
+  }, [movies]);
+
   return (
     <BrowserRouter>
       <NavigationBar
@@ -61,9 +71,12 @@ export const MainView = () => {
           setToken(null);
           localStorage.clear();
         }}
+        onSearch={(query) => {
+          setViewMovies(movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase())));
+        }}
       />
       <Container>
-        <Row className='justify-content-md-center'>
+        <Row className='justify-content-center'>
           <Routes>
             <Route
               path='/register'
@@ -72,7 +85,7 @@ export const MainView = () => {
                   {user ? (
                     <Navigate to='/' />
                   ) : (
-                    <Col md={5}>
+                    <Col>
                       <SignupView />
                     </Col>
                   )}
@@ -86,7 +99,7 @@ export const MainView = () => {
                   {user ? (
                     <Navigate to='/' />
                   ) : (
-                    <Col md={5}>
+                    <Col>
                       <LoginView
                         onLoggedIn={(user, token) => {
                           setUser(user);
@@ -99,6 +112,26 @@ export const MainView = () => {
               }
             />
             <Route
+              path='/users/:username'
+              element={
+                !user ? (
+                  <Navigate to='/login' replace />
+                ) : (
+                  <ProfileView
+                    user={user}
+                    token={token}
+                    movies={movies}
+                    onLoggedOut={() => {
+                      setUser(null);
+                      setToken(null);
+                      localStorage.clear();
+                    }}
+                    updateUser={updateUser}
+                  />
+                )
+              }
+            />
+            <Route
               path='/movies/:movieId'
               element={
                 <>
@@ -107,16 +140,12 @@ export const MainView = () => {
                   ) : movies.length === 0 ? (
                     <Col>The list is empty!</Col>
                   ) : (
-                    <Col>
-                      <MovieView
-                        movies={movies}
-                        user={user}
-                        updateUserOnFav={(user) => {
-                          setUser(user);
-                          localStorage.setItem('user', JSON.stringify(user));
-                        }}
-                      />
-                    </Col>
+                    <MovieView
+                      movies={movies}
+                      user={user}
+                      token={token}
+                      updateUser={updateUser}
+                    />
                   )}
                 </>
               }
@@ -131,39 +160,14 @@ export const MainView = () => {
                     <div>The list is empty!</div>
                   ) : (
                     <>
-                      {!user ? (
-                        <Navigate to='/login' />
-                      ) : movies.length === 0 ? (
-                        <Col>Loading...</Col>
-                      ) : (
-                        <Row className='justify-content-center py-5'>
-                          {movies.map((movie) => (
-                            <Col className='mb-b' key={movie.id} xl={2} lg={3} md={4} sm={12} xs={12}>
-                              <MovieCard
-                                movie={movie}
-                                user={user}
-                                updateUserOnFav={(user) => {
-                                  setUser(user);
-                                  localStorage.setItem('user', JSON.stringify(user));
-                                }}
-                              />
-                            </Col>
-                          ))}
-                        </Row>
-                      )}
+                      {viewMovies.map((movie) => (
+                        <Col className='mb-b' key={movie.id} xl={2} lg={3} md={4} sm={12} xs={12}>
+                          <MovieCard
+                            movie={movie}
+                          />
+                        </Col>
+                      ))}
                     </>
-                  )}
-                </>
-              }
-            />
-            <Route
-              path='/users/:username'
-              element={
-                <>
-                  {!user ? (
-                    <Navigate to='/login' replace />
-                  ) : (
-                    <ProfileView movies={movies} />
                   )}
                 </>
               }
