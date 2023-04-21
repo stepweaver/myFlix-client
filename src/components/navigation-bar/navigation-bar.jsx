@@ -24,8 +24,8 @@ export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
             <img src={logo} alt='brand logo' width='70' />  CthulhuFlix
           </h1>
         </Navbar.Brand>       
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
+        <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+        <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='me-auto p-4 mt-4 nav-links'>
             {!user && (
               <>
