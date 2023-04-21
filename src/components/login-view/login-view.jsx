@@ -43,7 +43,7 @@ export const LoginView = ({ onLoggedIn }) => {
       <Card.Body>
         <Card.Title className='text-center fs-4 card-title text-uppercase'>Login</Card.Title>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId='loginUsername' className='input-group-sm mt-2'>
+          <Form.Group controlId='loginUsername' className='input-group-sm mt-5'>
             <Form.Label>Username</Form.Label>
             <Form.Control
               type='text' 
@@ -67,7 +67,7 @@ export const LoginView = ({ onLoggedIn }) => {
             />
           </Form.Group>
           <Button
-            className='mt-3 text-uppercase w-100 fw-bold fs-5'
+            className='mt-5 text-uppercase w-100 fw-bold fs-5'
             type='submit'
           >
             Submit
