@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Card } from 'react-bootstrap';
+import { Button, Form, Card, Row } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -39,41 +39,43 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Card className='login-card bg-black p-3 mt-5' style={{ width: '20rem' }}>
-      <Card.Body>
-        <Card.Title className='text-center fs-4 card-title text-uppercase'>Login</Card.Title>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId='loginUsername' className='input-group-sm mt-5'>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type='text' 
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder='Enter Username'
-              minLength='2'
-              required
-              style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-            />
-          </Form.Group>
-          <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder='Enter Password'
-              required
-              style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-            />
-          </Form.Group>
-          <Button
-            className='mt-5 text-uppercase w-100 fw-bold fs-5'
-            type='submit'
-          >
-            Submit
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <Row className='justify-content-center'>
+      <Card className='login-card bg-black p-3 mt-5' style={{ width: '20rem' }}>
+        <Card.Body>
+          <Card.Title className='text-center fs-4 card-title text-uppercase'>Login</Card.Title>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId='loginUsername' className='input-group-sm mt-5'>
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type='text' 
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder='Enter Username'
+                minLength='2'
+                required
+                style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+              />
+            </Form.Group>
+            <Form.Group controlId='loginPassword' className='input-group-sm mt-2'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder='Enter Password'
+                required
+                style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+              />
+            </Form.Group>
+            <Button
+              className='mt-5 text-uppercase w-100 fw-bold fs-5'
+              type='submit'
+            >
+              Submit
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </Row>
   );
 };
