@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button, Container, Card, CardGroup, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card, Row } from 'react-bootstrap';
 
 import './signup-view.scss';
 
@@ -38,67 +38,60 @@ export const SignupView = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CardGroup>
-            <Card className='signup-card bg-transparent p-3 mt-5 border-primary text-uppercase'>
-              <Card.Title className='text-center fs-3'>New User Registration</Card.Title>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group controlId='signupUsername' className='input-group-sm mt-2'>
-                <Form.Label>Username</Form.Label>
-                  <Form.Control
-                    type='text'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    minLength='2'
-                    placeholder='Enter Username'
-                    style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-                  />
-                </Form.Group>
-                <Form.Group controlId='signupPassword' className='input-group-sm mt-2'>
-                  <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type='password'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      minLength='6'
-                      placeholder='Enter Password'
-                      style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-                    />
-                  </Form.Group>
-                  <Form.Group controlId='signupEmail' className='input-group-sm mt-2'>
-                  <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type='email'
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder='example@email.com'
-                      style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-                    />
-                  </Form.Group>
-                  <Form.Group controlId='signupBirthday' className='input-group-sm mt-2'>
-                  <Form.Label>Birthday</Form.Label>
-                    <Form.Control
-                      type='date'
-                      value={birthday}
-                      onChange={(e) => setBirthday(e.target.value)}
-                      placeholder='MM/DD/YYYY'
-                      style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
-                    />
-                  </Form.Group>
-                  <Button
-                    className='mt-3 text-uppercase w-100 fw-bold fs-5'
-                    type='submit'
-                  >
-                    Submit
-                  </Button>
-                </Form>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
+    <Row className='justify-content-center'>
+      <Card className='signup-card bg-black p-3 mt-5' style={{ width: '20rem' }}>
+        <Card.Title className='text-center fs-4 text-uppercase'>New User Registration</Card.Title>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId='signupUsername' className='input-group-sm mt-5'>
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type='text'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              minLength='2'
+              placeholder='Enter Username'
+              style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+            />
+          </Form.Group>
+          <Form.Group controlId='signupPassword' className='input-group-sm mt-2'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              minLength='6'
+              placeholder='Enter Password'
+              style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+            />
+          </Form.Group>
+          <Form.Group controlId='signupEmail' className='input-group-sm mt-2'>
+          <Form.Label>Email</Form.Label>
+            <Form.Control
+              type='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='example@email.com'
+              style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+            />
+          </Form.Group>
+          <Form.Group controlId='signupBirthday' className='input-group-sm mt-2'>
+          <Form.Label>Birthday</Form.Label>
+            <Form.Control
+              type='date'
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+              style={{ border: 'none', borderBottom: '1px solid green', borderRadius: 0, boxShadow: 'none' }}
+            />
+          </Form.Group>
+          <Button
+            className='mt-5 text-uppercase w-100 fw-bold fs-5'
+            type='submit'
+          >
+            Submit
+          </Button>
+        </Form>
+      </Card>
+    </Row>
   );
 };
