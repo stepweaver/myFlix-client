@@ -26,7 +26,7 @@ export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
         </Navbar.Brand>       
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
-          <Nav className='me-auto p-4 mt-4 nav-links'>
+          <Nav className='me-auto p-3 mt-3 nav-links'>
             {!user && (
               <>
                 <Nav.Link className='me-auto' as={Link} to='/register'>
