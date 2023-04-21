@@ -1,10 +1,17 @@
 import { Navbar, Container, Nav, Form, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import logo from '../../../images/cthulhuLogo.png';
 import './navigation-bar.scss';
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
+  const [ query, setQuery ] = useState('');
+
+  // useEffect(() => {
+  //   onSearch(query);
+  // }, [query]);
+
   return (
     <Navbar
       collapseOnSelect
@@ -12,10 +19,11 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
       expand='lg'
     >
       <Container fluid>
-        <Navbar.Brand as={Link} to='/' className='brand'>
-          <img src={logo} alt='brand logo' width='70' />
-        </Navbar.Brand>
-        <h1 className='text-center cthulhuflix mt-4'>CthulhuFlix</h1>       
+        <Navbar.Brand as={Link} to='/' onClick={() => setQuery('')}>
+          <h1 className='text-center cthulhuflix mt-4'>
+            <img src={logo} alt='brand logo' width='70' />  CthulhuFlix
+          </h1>
+        </Navbar.Brand>       
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='me-auto p-4 mt-4 nav-links'>
