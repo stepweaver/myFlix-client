@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import { MovieCard } from '../movie-card/movie-card';
@@ -21,7 +21,7 @@ export const FavoriteMovies = ({ movies, storedUser }) => {
               <MovieCard
                 movie={movie}
                 user={user}
-                updateUserOnFav={(user) => {
+                updateUser={(user) => {
                   setUser(user);
                   localStorage.setItem('user', JSON.stringify(user));
                 }}
