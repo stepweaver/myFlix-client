@@ -61,3 +61,5 @@ export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
     </Navbar>
   );
 };
+
+//TODO Do not display the search box in the ProfileView or the MovieView. Implement useLocation conditional?
