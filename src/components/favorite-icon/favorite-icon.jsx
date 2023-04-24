@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPlusSquare, FiMinusSquare } from 'react-icons/all';
 
-export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
+export const FavoriteIcon = ({ user, movie, updateUser }) => {
   let updatedUser = { ...user };
   if (!updatedUser.FavoriteMovies || !Array.isArray(updatedUser.FavoriteMovies)) {
     updatedUser.FavoriteMovies = [];
@@ -10,11 +10,13 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
 
   const token = localStorage.getItem('token');
 
-  const alreadyFavorite =
-    updatedUser.FavoriteMovies &&
-    updatedUser.FavoriteMovies.find((favMovieId) => favMovieId === movie.id);
+  const [isFavorite, setIsFavorite] = useState(
+    updatedUser.FavoriteMovies.includes(movie.id)
+  );
 
-  const [isFavorite, setIsFavorite] = useState(alreadyFavorite);
+  useEffect(() => {
+    setIsFavorite(updatedUser.FavoriteMovies.includes(movie.id));
+  }, [movie, updatedUser]);
 
   const toggleFavorite = () => {
     if (!token) return;
@@ -30,7 +32,7 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
 
     let resultAlert = '';
 
-    if (alreadyFavorite) {
+    if (isFavorite) {
       requestOptions.method = 'DELETE';
       resultAlert = `${movie.title} removed from Favorites`;
       updatedUser.FavoriteMovies = updatedUser.FavoriteMovies.filter(
@@ -51,7 +53,7 @@ export const FavoriteIcon = ({ user, movie, updateUserOnFav }) => {
       })
       .then((data) => {
         alert(`${resultAlert}`);
-        updateUserOnFav(updatedUser);
+        updateUser(updatedUser);
         setIsFavorite(!isFavorite);
       })
       .catch((e) => {
