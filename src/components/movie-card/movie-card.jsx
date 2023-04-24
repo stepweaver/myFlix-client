@@ -32,17 +32,13 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-      <Card
-        className='h-100 movie-card'
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
         <Card.Img
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           ref={img => (cardImg = img)}
-          className='mb-3 movie-card-img'
+          className='mb-3 movie-card-img square bg-primary rounded-2'
           src={movie.imageURL}
         />
-      </Card>
     </Link>
   );
 };
