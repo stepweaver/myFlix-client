@@ -13,29 +13,29 @@ export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
   }, [query]);
 
   return (
-    <Navbar collapseOnSelect variant="dark" expand="lg">
+    <Navbar collapseOnSelect variant='dark' expand='lg'>
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" onClick={() => setQuery('')}>
-          <h1 className="text-center cthulhuflix mt-4">
-            <img src={logo} alt="brand logo" width="70" /> CthulhuFlix
+        <Navbar.Brand as={Link} to='/' onClick={() => setQuery('')}>
+          <h1 className='text-center cthulhuflix mt-4 fs-1'>
+            <img src={logo} alt='brand logo' width='70' /> CthulhuFlix
           </h1>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto p-3 mt-3 nav-links">
+        <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+        <Navbar.Collapse id='responsive-navbar-nav'>
+          <Nav className='me-auto p-3 mt-3 nav-links'>
             {!user && (
               <>
-                <Nav.Link className="me-auto" as={Link} to="/register">
+                <Nav.Link className='me-auto' as={Link} to='/register'>
                   Register
                 </Nav.Link>
-                <Nav.Link className="me-auto" as={Link} to="/">
+                <Nav.Link className='me-auto' as={Link} to='/'>
                   Login
                 </Nav.Link>
               </>
             )}
             {user && (
               <>
-                <Nav.Link as={Link} to={"/"}>
+                <Nav.Link as={Link} to={'/'}>
                   Home
                 </Nav.Link>
                 <Nav.Link as={Link} to={`/users/${user.username}`}>
@@ -46,15 +46,15 @@ export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
             )}
           </Nav>
           {user && (
-            <Form className="d-flex">
+            <Form className='d-flex'>
               <Form.Control
-                type="Search"
-                placeholder="Search Movies..."
-                className="search-box me-2"
-                aria-label="Search"
+                type='Search'
+                placeholder='Search Movies...'
+                className='search-box me-2'
+                aria-label='Search'
                 onChange={(e) => setQuery(e.target.value)}
               />
-              <Button variant="outline-success" className="search-button">
+              <Button variant='outline-success' className='search-button'>
                 Search
               </Button>
             </Form>
