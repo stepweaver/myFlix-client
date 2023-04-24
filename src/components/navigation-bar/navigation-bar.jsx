@@ -54,9 +54,6 @@ export const NavigationBar = ({ user, onLoggedOut, onSearch }) => {
                 aria-label='Search'
                 onChange={(e) => setQuery(e.target.value)}
               />
-              <Button variant='outline-success' className='search-button'>
-                Search
-              </Button>
             </Form>
           )}
         </Navbar.Collapse>
