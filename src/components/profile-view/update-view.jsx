@@ -58,7 +58,7 @@ export const UpdateView = ({ storedToken, storedUser }) => {
 
   return (
     <Container>
-      <Card className='bg-transparent p-3 update-card'>
+      <Card className='bg-transparent p-3 update-card' style={{ width: '20rem' }}>
         <Card.Title className='fs-3'>UPDATE USER INFO</Card.Title>
         <Card.Text>* Indicates a required field</Card.Text>
         <Form onSubmit={handleSubmit}>
